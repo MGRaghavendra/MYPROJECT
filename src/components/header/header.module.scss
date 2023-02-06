@@ -1,0 +1,136 @@
+//https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
+.header_container{
+    width: 100%;
+    .header_top{
+        background-color: #141414;
+        .header_topinner{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            height:34px;
+            margin:0px 58px;
+            .content{
+                width: fit-content;
+                padding: 0px 5px;
+                color:#ffffffbf;
+                font-size: 12px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                margin-right: 15px;
+                img{
+                    background: none;
+                }
+            }
+            .languages{
+                .text{
+                    margin: 0px 5px;
+                }
+                .downarrow{
+                    height:6px;
+                    width:6px;
+                    transform: rotate(45deg);
+                    border-right: 2px solid #ffffffbf;
+                    border-bottom:2px solid #ffffffbf;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .header_bottom{
+        background-image: linear-gradient(180deg,#141414,hsla(0,0%,8%,.35) 59%,hsla(0,0%,8%,0));
+        height: 62px;
+        padding: 0.1px;
+        .header_bottominner{
+            margin:0px 58px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            .headerbottom_left{
+                .logo{
+                    img{
+                        width: 85px;
+                        align-items: center;
+                    }
+                    float: left;
+                    height: 62px;
+                    width:85px;
+                    display: flex;
+                }
+                .menus{
+                    margin-left: 20px;
+                    float: right;
+                    .menu{
+                        font-size: 14px;
+                        color: #ffffffbf;
+                        margin: 0px 5px;
+                        width: fit-content;
+                        text-align: center;
+                        text-transform: uppercase;
+                        display: inline-block;
+                        height: 62px;
+                        line-height: 62px;
+                        padding: 0px 5px;
+                    }
+                    .active{
+                        border-bottom: 3px solid #ff7f12;;
+                    }
+                }
+            }
+            .headerbottom_right{
+                .others{
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-between;
+                    .otherbtns{
+                        font-size: 14px;
+                        color: #ffffffbf;
+                        margin: 0px 5px;
+                        width: 60px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        height: 62px;
+                        line-height: 62px;
+                       
+                    }
+                    .search{
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        width: 50px;
+                        img{
+                            margin-right: 0px;
+                            border-right: 1px solid #ffffffbf;
+                            padding:2px 15px;
+                        }
+                    }
+                    .pricing{
+                        span{
+                            border-right: 1px solid #ffffffbf;
+                            padding: 0px 8px;
+                        }
+                    }
+                    .authcontainer{
+                        .authbtn{
+                            color: #ffffffbf;
+                            padding: 0px 10px;
+                        }
+                        .signinbtn{
+                            color: #ffffffbf;
+                        }
+                        .signupbtn{
+                           color: #ffffffbf;
+                        }
+                        .authactivebtn{
+                            color: #fff;
+                            background-color: #ff7f12;
+                            padding: 8px 15px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
