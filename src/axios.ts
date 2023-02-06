@@ -26,6 +26,7 @@ export async function axiosget<T>(config:axiosgetparams):Promise<T | void >{
             params:config.params
         })
         let data = response.data
+        // console.log(data)
         return data
       }
       catch(err){
