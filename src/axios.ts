@@ -18,7 +18,7 @@ export function setaxiosInstance(baseurl:string):void{
     })
 }
 
-export async function axiosget<T>(config:axiosgetparams):Promise<T | void >{
+export async function axiosget<T>(config:axiosgetparams):Promise<T | null >{
     if(Axios){
       try{
         let response:AxiosResponse<T> = await Axios.get<T>(config.url,{
@@ -35,4 +35,5 @@ export async function axiosget<T>(config:axiosgetparams):Promise<T | void >{
         }
       }
     }
+    return null;
 }

@@ -1,7 +1,7 @@
 import { appConfig } from "@/appconfig";
 import styles from "./header.module.scss";
 import { menuInterface } from "@/shared";
-import Menus from "./Menus";
+import Menus from "./menus/Menus";
 interface props{
   menus:menuInterface[]
 }
@@ -23,7 +23,7 @@ export default function HeaderBottom({menus}:props):JSX.Element{
           <div className={`${styles.others}`}>
             <div className={`${styles.otherbtns} ${styles.search}`}>
               <img
-                src={`${appConfig.cloudpath}images/search-icon.svg`}
+                src={`${appConfig.cloudpath}/images/search-icon.svg`}
                 alt=""
              />
             </div>

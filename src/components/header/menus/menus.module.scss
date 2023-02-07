@@ -1,0 +1,19 @@
+.menus{
+    margin-left: 20px;
+    float: right;
+    .menu{
+        font-size: 14px;
+        color: #ffffffbf;
+        margin: 0px 5px;
+        width: fit-content;
+        text-align: center;
+        text-transform: uppercase;
+        display: inline-block;
+        height: 62px;
+        line-height: 62px;
+        padding: 0px 5px;
+    }
+    .active{
+        border-bottom: 3px solid #ff7f12;;
+    }
+}
