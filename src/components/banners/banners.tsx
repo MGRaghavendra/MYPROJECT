@@ -54,7 +54,9 @@ export default function Banners() {
     arrows: false
   };
   // console.log(banners);
+  console.log('hello')
   return (
+    
     <div className={styles.bannersWrapper}>
       <div className={styles.bannersContainers}>
         <Slider {...settings}>
