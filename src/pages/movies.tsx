@@ -1,5 +1,4 @@
 import UserContext from "@/context/usercontext";
-import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import { axiosget } from "@/axios";
@@ -9,6 +8,7 @@ import { bannerInterface, menuInterface } from "@/shared";
 import { PageContext } from "@/context/pagecontext";
 import Banners from "@/components/banners/banners";
 import Sections from "@/components/Sections/Sections";
+import { useRouter } from "next/router";
 
 async function apicall(targetPath: string) {
   let configs = {
@@ -26,13 +26,13 @@ async function apicall(targetPath: string) {
   return data;
 }
 
-export default function Home(): JSX.Element {
+export default function Movies(): JSX.Element {
   const { menus }: { menus: menuInterface[] } = useContext(UserContext);
   const [banners, setBanners] = useState<bannerInterface[]>([]);
   const [sections,setSections] = useState([]);
   useEffect(function () {
     if (menus.length > 0) {
-      apicall(menus[0].targetPath)
+      apicall(menus[2].targetPath)
         .then((data) => {
           if (data?.status) {
             setBanners(data.response?.banners);
@@ -49,9 +49,9 @@ export default function Home(): JSX.Element {
   return (
     <PageContext.Provider value={{ banners,sections }}>
       <Head>
-        <title>Home Page.....</title>
+        <title>Movies Page.....</title>
       </Head>
-      <div style={{marginTop:'40px',backgroundColor:"#141414"}} >
+      <div style={{marginTop:'95px',backgroundColor:"#141414"}}>
       <Banners/>
       <Sections/>
       </div>

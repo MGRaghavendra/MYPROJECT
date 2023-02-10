@@ -18,15 +18,11 @@ function Banner({ banner }: { banner: bannerInterface }) {
 }
 
 function Dots(dots: ReactNode): JSX.Element {
-  return (
-      <ul>{dots}</ul>
-  );
+  return <ul>{dots}</ul>;
 }
 
 function Dot(index: number) {
-  return (
-    <div className={styles.dot}></div>
-  );
+  return <div className={styles.dot}></div>;
 }
 
 export default function Banners() {
@@ -49,22 +45,23 @@ export default function Banners() {
       console.log("afterchange: ", currentSlide);
     },
     // useCSS: true,
-    dotsClass:styles.bannerdots,
-    centerMode:true,
-    arrows: false
+    dotsClass: styles.bannerdots,
+    centerMode: false,
+    arrows: false,
   };
   // console.log(banners);
-  console.log('hello')
+  console.log("hello");
   return (
-    
-    <div className={styles.bannersWrapper}>
-      <div className={styles.bannersContainers}>
-        <Slider {...settings}>
-          {banners.map((banner, index) => (
-            <Banner key={index} banner={banner} />
-          ))}
-        </Slider>
+    banners.length > 0 ? (
+      <div className={styles.bannersWrapper}>
+        <div className={styles.bannersContainers}>
+          <Slider {...settings}>
+            {banners.map((banner, index) => (
+              <Banner key={index} banner={banner} />
+            ))}
+          </Slider>
+        </div>
       </div>
-    </div>
+    ):<></>
   );
 }
