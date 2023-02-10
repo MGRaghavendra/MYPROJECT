@@ -48,7 +48,7 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Home Page.....</title>
       </Head>
-      <div style={{marginTop:'34px'}}>
+      <div>
       <Banners/>
       </div>
     </PageContext.Provider>

@@ -1,6 +1,8 @@
 .bannersWrapper {
   width: 100%;
   .bannersContainers {
+    padding-top: 32px;
+    overflow: hidden;
     .imageContainer {
       img {
         width: 100%;
@@ -8,9 +10,51 @@
         margin: 0px;
       }
     }
-    .bannerdots {
-      .dot {
-      }
-    }
   }
 }
+
+// &button {
+// height: 10px;
+// width: 10px;
+// border-radius: 50%;
+// background-color: #404040;
+// margin-bottom: 40px;
+// outline: none;
+// border: 1px solid red;
+// position: relative;
+// bottom: 5px;
+// overflow: hidden;
+// }
+
+.bannerdots{
+  display: block;
+  width: 100%;
+  border:1px solid red;
+  text-align: center;
+  // height: 20px;
+  // border: 1px solid red;
+  // vertical-align: middle;
+  // margin: auto;
+  // display: inline-block;
+  // margin-left: 45%
+}
+
+.bannerdots li{
+  display: inline-block;
+}
+
+.bannerdots .dot{
+  height: 10px;
+  width:10px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.bannerdots .slick-dots .slick-active .dot{
+  background-color: #fff;
+}
+
+// .bannerdots li.slick-active{
+//   background-color: #000;
+// }
+

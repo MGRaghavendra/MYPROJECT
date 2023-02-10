@@ -1,20 +1,12 @@
 import { appConfig } from "@/appconfig";
 import { PageContext } from "@/context/pagecontext";
 import { bannerInterface } from "@/shared";
-import { useContext, useEffect, useState } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import styles from "./banners.module.scss";
-import Slider from "react-slick";
-
+import Slider, { Settings } from "react-slick";
 function Banner({ banner }: { banner: bannerInterface }) {
-  const [style, setStyle] = useState({});
-  useEffect(function () {
-    let windowobj: Window = window;
-    let body: HTMLBodyElement = document.getElementsByTagName("body")[0];
-    console.log(windowobj.innerWidth);
-    setStyle((style) => ({ ...style, width: `${body.style.width}px` }));
-  }, []);
   return (
-    <div className={styles.imageContainer} style={style}>
+    <div className={styles.imageContainer}>
       <img
         src={`${appConfig.bannerImgpath}/content/banner/common/${
           banner.imageUrl.split(",")[1]
@@ -25,20 +17,51 @@ function Banner({ banner }: { banner: bannerInterface }) {
   );
 }
 
+function Dots(dots: ReactNode): JSX.Element {
+  return (
+      <ul>{dots}</ul>
+  );
+}
+
+function Dot(index: number) {
+  return (
+    <div className={styles.dot}></div>
+  );
+}
+
 export default function Banners() {
   const { banners } = useContext(PageContext);
+  const settings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // appendDots: Dots,
+    customPaging: Dot,
+    // autoplay: true,
+    beforeChange: (currentSlide: number, nextSlide: number) => {
+      console.groupCollapsed("beforeChange: ", currentSlide);
+      console.log("nextSlide: ", nextSlide);
+      console.groupEnd();
+    },
+    afterChange: (currentSlide: number) => {
+      console.log("afterchange: ", currentSlide);
+    },
+    // useCSS: true,
+    dotsClass:styles.bannerdots,
+    centerMode:true,
+    arrows: false
+  };
   // console.log(banners);
   return (
     <div className={styles.bannersWrapper}>
       <div className={styles.bannersContainers}>
-        {banners.map((banner, index) => (
-          <Banner key={index} banner={banner} />
-        ))}
-        {/* <div className={styles.bannerdots}>
-          {banners.map((_, i) => (
-            <span key={i} className={styles.dot}></span>
+        <Slider {...settings}>
+          {banners.map((banner, index) => (
+            <Banner key={index} banner={banner} />
           ))}
-        </div> */}
+        </Slider>
       </div>
     </div>
   );
