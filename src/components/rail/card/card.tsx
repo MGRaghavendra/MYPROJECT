@@ -1,12 +1,11 @@
-import { cardInterface } from "@/shared";
 import Image from 'next/image'
-import { appConfig } from "@/appconfig";
 import styles from './card.module.scss'
 import { getAbsolutPath } from "@/utils";
 
 
 
-export const Card = (props:any): JSX.Element => {
+export const Card = (props: any): JSX.Element => {
+  let programName;
   const { cardType } = props.cardDetails;
   const { cardDetails } = props;
   const src = getAbsolutPath(cardDetails.display.imageUrl);
@@ -19,17 +18,26 @@ export const Card = (props:any): JSX.Element => {
         alt="Picture of the author" width={100} height={132}
       />
       <div className={`${styles.card_footer}`}>
-        <div className= {`${styles.card_footer_cpimage}`}> 
-          <Image
-            loader={() => cpImage}
-            src={cpImage}
-            alt="Picture of the author" width={100} height={46}
-          />
+        <div className={`${styles.card_footer_cpimage}`}>
+          {
+            !!cpImage && <Image
+              loader={() => cpImage}
+              src={cpImage}
+              alt="Picture of the author" width={100} height={46}
+            />
+          }
         </div>
-        <div className = {`${styles.card_footer_cpdesc}`}>
-            <h5>Program @ 8.30</h5>
-            <span>11 Feb | 8:30 AM-9:00 AM</span>
-        </div>
+        {cardType === "overlayIcon_poster" &&
+          <div className={`${styles.card_footer_cpdesc}`}>
+            {
+              cardDetails?.hover.elements.map((el: any) => {
+                 programName = el.key === 'name' ? el.value : '';
+              })
+            }
+            <h5>{programName}</h5>
+            {!!cardDetails.display.subtitle1 && <span>{cardDetails.display.subtitle1}</span>}
+          </div>
+        }
       </div>
     </div>
   </div>

@@ -12,14 +12,18 @@ export const Rail = (props:any):JSX.Element =>{
    const { sectionData = {} } = section;
    const { sectionInfo = {} } = section;
    const { data = [] } = sectionData;
-    return <div className={`${styles.rail}`}>
-        <SectionTitle  sectionInfo = {sectionInfo}/>
-        <div className= {`${styles.section_inner}`}>
-        {
-            data?.map((cardDetails:any , index:number) =>{
-                return <Card key={index}  cardDetails = {cardDetails} />
-            })
-        }
+    return <>
+        { data?.length > 0 &&
+            <div className={`${styles.rail}`}>
+            <SectionTitle  sectionInfo = {sectionInfo}/>
+            <div className= {`${styles.section_inner}`}>
+            {
+                data?.map((cardDetails:any , index:number) =>{
+                    return <Card key={index}  cardDetails = {cardDetails} />
+                })
+            }
+            </div>
         </div>
-    </div>
+        }
+    </>
 }
