@@ -4,8 +4,10 @@ import { Card } from "./card/card";
 import styles from "./rail.module.scss";
 import { SectionTitle } from "./section-title/SectionTitle";
 
-export const Rail = ():JSX.Element =>{
-   const { cards } = useContext(PageContext);
+export const Rail = (props:any):JSX.Element =>{
+    console.log(props);
+//    const { cards } = useContext(PageContext);
+    const {cards = {}} = props
    const { section = {} } = cards;
    const { sectionData = {} } = section;
    const { sectionInfo = {} } = section;
@@ -15,7 +17,7 @@ export const Rail = ():JSX.Element =>{
         <div className= {`${styles.section_inner}`}>
         {
             data?.map((cardDetails:any , index:number) =>{
-                return <Card cardDetails = {cardDetails} key={index}/>
+                return <Card key={index}  cardDetails = {cardDetails} />
             })
         }
         </div>

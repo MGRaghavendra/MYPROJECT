@@ -53,12 +53,13 @@ export const getAbsolutPath = (resourcePath:any) =>{
     if (resourcePath.indexOf('http://') == '0' || resourcePath.indexOf('https://') == '0') {
 			return resourcePath
 		}
-		else if (resourcePath.split(',').length > 1) {
+		else if (resourcePath.split(',').length == 2) {
 			let arr = resourcePath.split(',');
 			let profile = getProfile(arr[0]);
 			return profile +  arr.slice(1,arr.length).join();
 		}
 		else {
+            console.log(getProfile() + resourcePath)
 			return getProfile() + resourcePath;
 		}
 }

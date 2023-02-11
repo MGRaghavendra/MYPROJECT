@@ -29,6 +29,7 @@ async function apicall(targetPath: string) {
 export default function Home(): JSX.Element {
   const { menus }: { menus: menuInterface[] } = useContext(UserContext);
   const [banners, setBanners] = useState<bannerInterface[]>([]);
+  const [homePageData, setHomePageData] = useState<any[]>([]);
   const [cards , setCards] = useState<any[]>([]);
   useEffect(function () {
     if (menus.length > 0) {
@@ -36,6 +37,7 @@ export default function Home(): JSX.Element {
         .then((data:any) => {
           if (data?.status) {
             setBanners(data.response.banners);
+            setHomePageData(data.response.data);
             setCards(data.response.data[1])
           } else {
             if(data['error'].code === 401) {
@@ -58,7 +60,11 @@ export default function Home(): JSX.Element {
       <Banners/>
       </div>
       <div>
-        <Rail/>
+        {
+          homePageData?.map((data:any, index:any) =>{
+            return <Rail cards = {data}/>
+          })
+        }
       </div>
     </PageContext.Provider>
   );
