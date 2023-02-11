@@ -30,6 +30,8 @@ export function getFromlocalStorage(key:string):string | null{
     return localStorage.getItem(key)
 }
 
+
+
 export const retriveSession = () => {
     let initjson = getFromlocalStorage('initjson');
     let sessionId = getsessionToken(); 
@@ -45,4 +47,36 @@ export const retriveSession = () => {
         loactionapi();
     }
 
+}
+
+export const getAbsolutPath = (resourcePath:any) =>{
+    if (resourcePath.indexOf('http://') == '0' || resourcePath.indexOf('https://') == '0') {
+			return resourcePath
+		}
+		else if (resourcePath.split(',').length > 1) {
+			let arr = resourcePath.split(',');
+			let profile = getProfile(arr[0]);
+			return profile +  arr.slice(1,arr.length).join();
+		}
+		else {
+			return getProfile() + resourcePath;
+		}
+}
+
+const getProfile = (resource?: string) => {
+    let resourceProfiles = JSON.parse(localStorage.getItem("resourceProfiles") || '{}');
+    if (!!resource) {
+        for (let i = 0; i < resourceProfiles.length; i++) {
+            if (resource === resourceProfiles[i].code) {
+                return resourceProfiles[i].urlPrefix;
+            }
+        }
+    }
+    else {
+        for (let i = 0; i < resourceProfiles.length; i++) {
+            if (resourceProfiles[i].isDefault) {
+                return resourceProfiles[i].urlPrefix;
+            }
+        }
+    }
 }

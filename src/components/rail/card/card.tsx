@@ -2,13 +2,15 @@ import { cardInterface } from "@/shared";
 import Image from 'next/image'
 import { appConfig } from "@/appconfig";
 import styles from './card.module.scss'
+import { getAbsolutPath } from "@/utils";
 
 
-interface props {
-  menus: cardInterface[];
-}
-export const Card = (): JSX.Element => {
-  const src = `${appConfig.bannerImgpath}/content/common/channel/logos/aajtak.png`;
+
+export const Card = (props:any): JSX.Element => {
+  const { cardType } = props.cardDetails;
+  const { cardDetails } = props;
+  const src = cardType === "overlayIcon_poster" ? getAbsolutPath(cardDetails.display.parentIcon) : '';
+  console.log(src)
   return <div className={`${styles.card}`}>
     <div className={`${styles.card_inner}`}>
       <Image

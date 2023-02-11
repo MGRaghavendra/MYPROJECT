@@ -53,8 +53,6 @@ export default function Banners() {
     centerMode:false,
     arrows: false
   };
-  // console.log(banners);
-  console.log('hello')
   return (
     
     <div className={`${styles.bannersWrapper} home-banner`}>

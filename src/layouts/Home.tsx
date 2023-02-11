@@ -29,12 +29,14 @@ async function apicall(targetPath: string) {
 export default function Home(): JSX.Element {
   const { menus }: { menus: menuInterface[] } = useContext(UserContext);
   const [banners, setBanners] = useState<bannerInterface[]>([]);
+  const [cards , setCards] = useState<any[]>([]);
   useEffect(function () {
     if (menus.length > 0) {
       apicall(menus[0].targetPath)
         .then((data:any) => {
           if (data?.status) {
             setBanners(data.response.banners);
+            setCards(data.response.data[1])
           } else {
             if(data['error'].code === 401) {
               retriveSession();
@@ -48,7 +50,7 @@ export default function Home(): JSX.Element {
     }
   }, []);
   return (
-    <PageContext.Provider value={{ banners }}>
+    <PageContext.Provider value={{ banners, cards }}>
       <Head>
         <title>Home Page.....</title>
       </Head>

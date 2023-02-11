@@ -1,5 +1,7 @@
 import styles from './sectionTitle.module.scss';
 
-export const SectionTitle = ():JSX.Element =>{
-    return <h3 className={`${styles.title}`}>Trending Live</h3>
+export const SectionTitle = (props:any):JSX.Element =>{
+    const { sectionInfo } = props;
+    const { name } = sectionInfo;
+    return <h3 className={`${styles.title}`}>{name}</h3>
 }
