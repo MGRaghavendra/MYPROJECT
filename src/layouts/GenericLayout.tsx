@@ -38,9 +38,9 @@ export default function GenericLayout({
   const { asPath } = useRouter();
   useEffect(function () {
     if (menus.length > 0) {
-      let menu = menus.find((menu) => ((asPath == menu.targetPath ) || (asPath == '/' && menu.targetPath == "home")))
-      console.log(asPath)
-      console.log(menu)
+      let menu = menus.find((menu) => ((asPath == `/${menu.targetPath}` ) || (asPath == '/' && menu.targetPath == "home")))
+      console.log('asPath: ',asPath)
+      console.log('menus: ',menu)
       if (menu) {
         apicall(menu.targetPath)
           .then((data) => {
@@ -56,7 +56,7 @@ export default function GenericLayout({
           });
       }
     }
-  }, []);
+  }, [menus,asPath]);
   return (
     <PageContext.Provider value={{ banners, sections }}>
       {/* <div style={{ marginTop: "40px", backgroundColor: "#141414" }}> */}

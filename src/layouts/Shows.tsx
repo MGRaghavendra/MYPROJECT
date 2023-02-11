@@ -7,7 +7,7 @@ export default function Movies(): JSX.Element {
   return (
     <GenericLayout>
       <Head>
-        <title>Movies Page.....</title>
+        <title>Shows Page.....</title>
       </Head>
       <div style={{ marginTop: "95px", backgroundColor: "#141414" }}>
         <Banners />
