@@ -5,7 +5,6 @@ import Section from "@/components/Section/Section"
 
 export default function Sections():JSX.Element{
     const {sections} = useContext(PageContext)
-    console.log(sections ,'from sections Component')
     return <div className={style.sections}>
         {
             sections.map((section,index)=>{

@@ -50,7 +50,6 @@ export default function Banners() {
     arrows: false,
   };
   // console.log(banners);
-  console.log("hello");
   return (
     banners.length > 0 ? (
       <div className={styles.bannersWrapper}>
