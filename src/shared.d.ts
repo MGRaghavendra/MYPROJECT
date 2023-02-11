@@ -31,4 +31,8 @@ export interface bannerInterface{
     path:string
   }
 }
+
+export interface cardInterface {
+  
+}
   

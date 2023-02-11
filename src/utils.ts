@@ -1,3 +1,5 @@
+import { systemconfigs, systemfeatures, loactionapi } from "./init";
+
 function GUID():string{
     function s4() {
         return Math.floor((1 + Math.random()) * 0x10000)
@@ -26,4 +28,21 @@ export function getsessionToken():string | null{
 
 export function getFromlocalStorage(key:string):string | null{
     return localStorage.getItem(key)
+}
+
+export const retriveSession = () => {
+    let initjson = getFromlocalStorage('initjson');
+    let sessionId = getsessionToken(); 
+    let boxId= getFromlocalStorage('box-id');
+    let locationData = getFromlocalStorage('location');
+    let systemconfig: string | any = getFromlocalStorage('systemconfigs');
+    let systemfeature = getFromlocalStorage('systemfeature');
+    if (!!systemconfig?.menus || !!!systemfeature) {
+        systemconfigs();
+        systemfeatures();
+    }
+    if (!locationData) {
+        loactionapi();
+    }
+
 }

@@ -51,15 +51,14 @@
             display: flex;
             justify-content: space-between;
             .headerbottom_left{
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 .logo{
                     img{
                         width: 85px;
                         align-items: center;
                     }
-                    float: left;
-                    height: 62px;
-                    width:85px;
-                    display: flex;
                 }
             }
             .headerbottom_right{

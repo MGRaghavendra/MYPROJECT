@@ -50,14 +50,14 @@ export default function Banners() {
     },
     // useCSS: true,
     dotsClass:styles.bannerdots,
-    centerMode:true,
+    centerMode:false,
     arrows: false
   };
   // console.log(banners);
   console.log('hello')
   return (
     
-    <div className={styles.bannersWrapper}>
+    <div className={`${styles.bannersWrapper} home-banner`}>
       <div className={styles.bannersContainers}>
         <Slider {...settings}>
           {banners.map((banner, index) => (

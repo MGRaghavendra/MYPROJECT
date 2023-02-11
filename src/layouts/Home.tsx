@@ -3,11 +3,12 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import { axiosget } from "@/axios";
-import { getsessionToken, getBoxId } from "@/utils";
+import { getsessionToken, getBoxId, retriveSession } from "@/utils";
 import { appConfig } from "@/appconfig";
 import { bannerInterface, menuInterface } from "@/shared";
 import { PageContext } from "@/context/pagecontext";
 import Banners from "@/components/banners/banners";
+import { Rail } from "@/components/rail/rail";
 
 async function apicall(targetPath: string) {
   let configs = {
@@ -21,7 +22,7 @@ async function apicall(targetPath: string) {
       path: targetPath,
     },
   };
-  let data = await axiosget<{ status: boolean; response: any } | null>(configs);
+  let data = await axiosget<{ status: boolean; response: any,error:any } | null>(configs);
   return data;
 }
 
@@ -31,15 +32,18 @@ export default function Home(): JSX.Element {
   useEffect(function () {
     if (menus.length > 0) {
       apicall(menus[0].targetPath)
-        .then((data) => {
+        .then((data:any) => {
           if (data?.status) {
             setBanners(data.response.banners);
           } else {
-            console.log("failed....");
+            if(data['error'].code === 401) {
+              retriveSession();
+            }
           }
         })
         .catch((err) => {
           console.log(err);
+
         });
     }
   }, []);
@@ -50,6 +54,9 @@ export default function Home(): JSX.Element {
       </Head>
       <div>
       <Banners/>
+      </div>
+      <div>
+        <Rail/>
       </div>
     </PageContext.Provider>
   );
