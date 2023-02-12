@@ -32,4 +32,8 @@ export interface bannerInterface {
   };
 }
 
+export interface cardInterface {
+  
+}
+  
 

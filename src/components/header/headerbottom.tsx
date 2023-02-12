@@ -2,30 +2,48 @@ import { appConfig } from "@/appconfig";
 import styles from "./header.module.scss";
 import { menuInterface } from "@/shared";
 import Menus from "./menus/Menus";
-interface props{
-  menus:menuInterface[]
+import Image from 'next/image';
+import clsx from "classnames";
+import { useEffect, useState } from "react";
+interface props {
+  menus: menuInterface[]
 }
 
-export default function HeaderBottom({menus}:props):JSX.Element{
+export default function HeaderBottom({ menus }: props): JSX.Element {
+
+  const [headerGradient, setheaderGradient] = useState(Boolean);
+
+  useEffect(() => {
+    // const handleScroll = () => {
+    //  (window.scrollY > 300) ? setheaderGradient(true) : setheaderGradient(false);
+    //  console.log(window.scrollY, headerGradient);
+    // }
+    window.addEventListener('scroll', () => {
+       if((window.scrollY > 300)) {
+        setheaderGradient(true) 
+      } else setheaderGradient(false);
+    })
+  }, [])
+
   return (
-    <div className={`${styles.header_bottom}`}>
+    <div className={`${styles.header_bottom} ${!headerGradient ? 'hasGradient' : ''}`}>
       <div className={`${styles.header_bottominner}`}>
         <div className={`${styles.headerbottom_left}`}>
           <div className={`${styles.logo}`}>
-            <img
-              src="https://platform.yupptv.com/assets/images/logo.svg"
-              alt=""
-            />
+            <Image src='https://platform.yupptv.com/assets/images/logo.svg' width={85} height={30}
+              alt="logo" />
           </div>
-           <Menus menus={menus}/>
-         </div>
-         <div className={`${styles.headerbottom_right}`}>
+          <Menus menus={menus} />
+        </div>
+        <div className={`${styles.headerbottom_right}`}>
           <div className={`${styles.others}`}>
             <div className={`${styles.otherbtns} ${styles.search}`}>
-              <img
+              {/* <img
                 src={`${appConfig.cloudpath}/images/search-icon.svg`}
                 alt=""
-             />
+             /> */}
+              <Image src={`${appConfig.cloudpath}/images/search-icon.svg`} width={100} height={20}
+                alt="logo" />
             </div>
             <div className={`${styles.otherbtns} ${styles.pricing}`}>
               <span>Pricing</span>
