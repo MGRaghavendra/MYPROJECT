@@ -23,7 +23,7 @@ export const Card = (props: any): JSX.Element => {
             !!cpImage && <Image
               loader={() => cpImage}
               src={cpImage}
-              alt="Picture of the author" width={100} height={46}
+              alt="" width={46} height={26}
             />
           }
         </div>

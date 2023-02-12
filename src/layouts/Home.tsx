@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
       <div>
         {
           homePageData?.map((data:any, index:any) =>{
-            return <Rail cards = {data}/>
+            return <Rail cards = {data} key = {index}/>
           })
         }
       </div>

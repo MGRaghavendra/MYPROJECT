@@ -7,6 +7,10 @@
 }
 
 body {
+    .hasGradient {
+        background-image: linear-gradient(180deg,#141414,hsla(0,0%,8%,.35) 59%,hsla(0,0%,8%,0)) !important;
+        // background: transparent !important;
+    }
     background: #141414;
     .home-banner {
         .slick-slider {
