@@ -3,7 +3,7 @@
     width: 100%;
     position: fixed;
     top:0;
-    z-index: 10;
+    z-index: 99;
     background-color: #141414;
     .header_top{
         background-color: #141414;
@@ -43,7 +43,7 @@
         }
     }
     .header_bottom{
-        background-image: linear-gradient(180deg,#141414,hsla(0,0%,8%,.35) 59%,hsla(0,0%,8%,0));
+        background: #222;
         height: 62px;
         padding: 0.1px;
         .header_bottominner{
@@ -52,15 +52,14 @@
             display: flex;
             justify-content: space-between;
             .headerbottom_left{
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 .logo{
                     img{
                         width: 85px;
                         align-items: center;
                     }
-                    float: left;
-                    height: 62px;
-                    width:85px;
-                    display: flex;
                 }
             }
             .headerbottom_right{
@@ -118,4 +117,5 @@
             }
         }
     }
+
 }
