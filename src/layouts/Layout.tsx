@@ -1,9 +1,6 @@
 import Head from "next/head";
 import {
-  FC,
-  FunctionComponent,
   ReactNode,
-  useContext,
   useEffect,
   useState,
 } from "react";
@@ -13,11 +10,13 @@ import Footer from "@/components/footer/footer";
 import UserContext from "@/context/usercontext";
 import { getFromlocalStorage } from "@/utils";
 import { menuInterface } from "@/shared";
+import { useRouter } from "next/router";
 
 function Layout({ children }: { children: ReactNode }) {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [menus, setMenus] = useState<menuInterface[]>([]);
   useEffect(function () {
+    console.log('sdsdsdsdsdsdsds')
     initapis().then((data) => {
       console.log(data);
       let systemconfigs = getFromlocalStorage("systemconfigs");

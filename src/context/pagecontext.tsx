@@ -2,13 +2,13 @@ import { bannerInterface } from "@/shared";
 import { createContext } from "react";
 
 interface pagecontextInterface{
-    banners:bannerInterface[],
-    cards:any
+    banners:bannerInterface[]
+    sections:any[]
 }
 
 const initialcontext:pagecontextInterface={
     banners:[],
-    cards:[]
+    sections:[]
 }
 
 export const PageContext = createContext<pagecontextInterface>(initialcontext)

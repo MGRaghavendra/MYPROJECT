@@ -11,7 +11,7 @@ export const Rail = (props:any):JSX.Element =>{
    const { sectionData = {} } = section;
    const { sectionInfo = {} } = section;
    const { data = [] } = sectionData;
-   console.log(cards)
+   
     return <>
         { data?.length > 0 &&
             <div className={`${styles.rail} ${cards.contentCode}`}>
