@@ -7,9 +7,19 @@
 }
 
 body {
+    overflow-x: hidden;
     .hasGradient {
-        background-image: linear-gradient(180deg,#141414,hsla(0,0%,8%,.35) 59%,hsla(0,0%,8%,0)) !important;
-        // background: transparent !important;
+        background-color: transparent !important;
+        position: relative;
+        &::after {
+            content: '';
+            background-image: linear-gradient(180deg,#141414,hsla(0,0%,8%,.35) 59%,hsla(0,0%,8%,0)) !important;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100px;
+            z-index: -1;
+        }
     }
     background: #141414;
     .home-banner {

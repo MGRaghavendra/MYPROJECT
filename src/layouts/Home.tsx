@@ -9,7 +9,7 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Home Page.....</title>
       </Head>
-      <div style={{ marginTop: "40px", backgroundColor: "#141414" }}>
+      <div>
         <Banners />
         <Sections />
       </div>

@@ -19,7 +19,7 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
     //  console.log(window.scrollY, headerGradient);
     // }
     window.addEventListener('scroll', () => {
-       if((window.scrollY > 300)) {
+       if((window.scrollY > 250)) {
         setheaderGradient(true) 
       } else setheaderGradient(false);
     })
