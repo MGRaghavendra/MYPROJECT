@@ -9,7 +9,7 @@ export default function Movies(): JSX.Element {
       <Head>
         <title>Shows Page.....</title>
       </Head>
-      <div style={{ marginTop: "95px", backgroundColor: "#141414" }}>
+      <div>
         <Banners />
         <Sections />
       </div>
