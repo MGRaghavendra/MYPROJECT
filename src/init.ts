@@ -124,7 +124,7 @@ export async function sessionapi():Promise<string | void> {
 export async function systemconfigs():Promise<string | void> {
   if (Axios) {
     try {
-      let response = await axiosget<configfeatures>({
+      let response = await axiosget<any>({
         url:"service/api/v1/system/config",
         headers: {
           "session-id": getsessionToken() || '',
@@ -134,6 +134,8 @@ export async function systemconfigs():Promise<string | void> {
       });
       if (response?.status) {
         localStorage.setItem("systemconfigs", JSON.stringify(response.response));
+        localStorage.setItem("resourceProfiles", JSON.stringify(response.response.resourceProfiles));
+
       }
       return systemfeatures();
     } catch (err) {

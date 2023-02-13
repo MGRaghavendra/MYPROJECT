@@ -1,12 +1,12 @@
 import Head from "next/head";
-export default function TvGuide(): JSX.Element {
+export default function shortsPage() {
   return (
     <>
       <Head>
-        <title>tvguide Page.....</title>
+        <title>Movies Page.....</title>
       </Head>
       <div style={{ marginTop: "95px", backgroundColor: "#141414" }}>
-        <h3 style={{ color: "#fff" }}>Welcome to Tv Guide Page..</h3>
+        <h3 style={{ color: "#fff" }}>Welcome to Shorts Page..</h3>
       </div>
     </>
   );

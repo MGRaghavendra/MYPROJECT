@@ -1,6 +1,5 @@
 import { menuInterface } from "@/shared";
-import styles from "./header.module.scss";
-import { useEffect } from "react";
+import styles from "./menus.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/router";
 interface props {

@@ -1,5 +1,5 @@
 import { menuInterface } from "@/shared";
-import styles from "./header.module.scss";
+import styles from "./menus.module.scss";
 import Menu from "./menu";
 interface props {
   menus: menuInterface[];
