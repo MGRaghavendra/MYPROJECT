@@ -5,6 +5,7 @@ import Menus from "./menus/Menus";
 import Image from 'next/image';
 import clsx from "classnames";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 interface props {
   menus: menuInterface[]
 }
@@ -15,14 +16,14 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
 
   useEffect(() => {
     const handleScroll = () => {
-      if ((window.scrollY > 250)) {
-        setheaderGradient(true)
+      if((window.scrollY > 250)) {
+        setheaderGradient(true) 
       } else setheaderGradient(false);
     }
     window.addEventListener('scroll', () => {
       handleScroll();
-      return () => {
-        window.removeEventListener('scroll', handleScroll());
+      return () =>{
+        window.removeEventListener('scroll', handleScroll );
       }
     },)
   }, [])
@@ -51,11 +52,11 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
               <span>Pricing</span>
             </div>
             <div className={`${styles.authcontainer}`}>
-              <span
+              <Link href={'/signin'}
                 className={`${styles.otherbtns} ${styles.authbtn} ${styles.signinbtn}`}
               >
                 signin
-              </span>
+              </Link>
               <span
                 className={`${styles.otherbtns} ${styles.authbtn} ${styles.signupbtn} ${styles.authactivebtn}`}
               >

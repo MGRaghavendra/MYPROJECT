@@ -5,7 +5,7 @@ export default function shortsPage() {
       <Head>
         <title>Movies Page.....</title>
       </Head>
-      <div style={{ marginTop: "95px", backgroundColor: "#141414" }}>
+      <div>
         <h3 style={{ color: "#fff" }}>Welcome to Shorts Page..</h3>
       </div>
     </>

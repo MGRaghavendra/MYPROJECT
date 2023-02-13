@@ -39,8 +39,6 @@ export default function GenericLayout({
   useEffect(function () {
     if (menus.length > 0) {
       let menu = menus.find((menu) => ((asPath == `/${menu.targetPath}` ) || (asPath == '/' && menu.targetPath == "home")))
-      console.log('asPath: ',asPath)
-      console.log('menus: ',menu)
       if (menu) {
         apicall(menu.targetPath)
           .then((data) => {
