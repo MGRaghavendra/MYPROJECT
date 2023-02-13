@@ -14,15 +14,17 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
   const [headerGradient, setheaderGradient] = useState(Boolean);
 
   useEffect(() => {
-    // const handleScroll = () => {
-    //  (window.scrollY > 300) ? setheaderGradient(true) : setheaderGradient(false);
-    //  console.log(window.scrollY, headerGradient);
-    // }
-    window.addEventListener('scroll', () => {
-       if((window.scrollY > 250)) {
-        setheaderGradient(true) 
+    const handleScroll = () => {
+      if ((window.scrollY > 250)) {
+        setheaderGradient(true)
       } else setheaderGradient(false);
-    })
+    }
+    window.addEventListener('scroll', () => {
+      handleScroll();
+      return () => {
+        window.removeEventListener('scroll', handleScroll());
+      }
+    },)
   }, [])
 
   return (
