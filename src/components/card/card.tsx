@@ -41,4 +41,4 @@ export const Card = (props: any): JSX.Element => {
       </div>
     </div>
   </div>
-}   
+}

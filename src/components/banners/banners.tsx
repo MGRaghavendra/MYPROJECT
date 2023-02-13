@@ -50,17 +50,20 @@ export default function Banners() {
     arrows: false,
   };
   // console.log(banners);
-  return (
-    banners.length > 0 ? (
-      <div className={styles.bannersWrapper}>
-        <div className={styles.bannersContainers}>
-          <Slider {...settings}>
-            {banners.map((banner, index) => (
-              <Banner key={index} banner={banner} />
-            ))}
-          </Slider>
-        </div>
+  return banners.length > 0 ? (
+    <div className={styles.banners}>
+    <div className={styles.bannersWrapper}>
+      <div className={styles.bannersContainers}>
+        <Slider {...settings}>
+          {banners.map((banner, index) => (
+            <Banner key={index} banner={banner} />
+          ))}
+        </Slider>
       </div>
-    ):<></>
+    </div>
+    <div className={styles.sectionhelper}></div>
+    </div>
+  ) : (
+    <></>
   );
 }

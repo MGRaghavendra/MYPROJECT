@@ -9,10 +9,10 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Home Page.....</title>
       </Head>
-      <div>
+      {/* <div style={{marginTop:"96px"}}> */}
         <Banners />
         <Sections />
-      </div>
+      {/* </div> */}
     </GenericLayout>
   );
 }

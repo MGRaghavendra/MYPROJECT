@@ -1,9 +1,9 @@
 import styles from "./footer.module.scss";
 import { appConfig } from "@/appconfig";
+import Link from "next/link";
 
 export default function Footer():JSX.Element{
     return <div>
-        Footer
         <div className={`${styles.footer_container}`}>
             <div className={`${styles.footerDivider}`}>
                 <div className={`${styles.footerLeft}`}>
@@ -16,8 +16,8 @@ export default function Footer():JSX.Element{
                         <span>TV App's</span>
                         <ul>
                             <li>
-                                <a target="_blank" href="https://play.google.com/">
-                                    <img alt="androidtv" src={`${appConfig.cloudpath}/images/multi-device-android-tv.png`}/></a>
+                                <Link target="_blank" href="https://play.google.com/">
+                                    <img alt="androidtv" src={`${appConfig.cloudpath}/images/multi-device-android-tv.png`}/></Link>
                             </li>
                             <li>
                                 <a target="_blank" href="https://play.google.com/">
@@ -70,13 +70,13 @@ export default function Footer():JSX.Element{
                         <a>Privacy Policy</a>
                     </li>
                     <li>
-                        <a>Privacy Policy</a>
+                        <a>Terms & Conditions</a>
                     </li>
                     <li>
-                        <a>Privacy Policy</a>
+                        <a>Help Center</a>
                     </li>
                     <li>
-                        <a>Privacy Policy</a>
+                        <a>Contact Us</a>
                     </li>
                 </ul>
             </div>
