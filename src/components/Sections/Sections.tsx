@@ -5,10 +5,13 @@ import Section from "@/components/Section/Section"
 
 export default function Sections():JSX.Element{
     const {sections} = useContext(PageContext)
+    console.log(sections)
     return <div className={style.sections}>
         {
             sections.map((section,index)=>{
-                return <Section key={index} section={section}/>
+                return <>
+                <Section key={index} section={section}/>
+                </>
             })
         }
     </div>
