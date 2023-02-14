@@ -57,11 +57,9 @@ export default function GenericLayout({
   }, [menus,asPath]);
   return (
     <PageContext.Provider value={{ banners, sections }}>
-      {/* <div style={{ marginTop: "40px", backgroundColor: "#141414" }}> */}
-        {/* <Banners/>
-      <Sections/> */}
+    <div style={{marginTop:"96px"}}>
         {children}
-      {/* </div> */}
+      </div>
     </PageContext.Provider>
   );
 }

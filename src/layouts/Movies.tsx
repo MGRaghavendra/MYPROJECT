@@ -9,10 +9,10 @@ export default function Movies(): JSX.Element {
       <Head>
         <title>Movies Page.....</title>
       </Head>
-      <div>
+      {/* <div style={{marginTop:"96px"}}> */}
         <Banners />
         <Sections />
-      </div>
+      {/* </div> */}
     </GenericLayout>
   );
 }

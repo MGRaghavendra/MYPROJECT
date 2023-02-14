@@ -9,10 +9,10 @@ export default function Movies(): JSX.Element {
       <Head>
         <title>Shows Page.....</title>
       </Head>
-      <div>
+      {/* <div> */}
         <Banners />
         <Sections />
-      </div>
+      {/* </div> */}
     </GenericLayout>
   );
 }
