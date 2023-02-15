@@ -35,7 +35,7 @@ function Layout({ children }: { children: ReactNode }) {
           <>
            {!asPath.includes('sign') && <Header />}
             {children}
-            <Footer />
+            {!asPath.includes('sign') && <Footer />}
           </>
         )}
       </>

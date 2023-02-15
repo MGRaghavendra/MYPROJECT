@@ -15,19 +15,6 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
 
   useEffect(() => {
     const handleScroll = () => {
-<<<<<<< HEAD
-      if((window.scrollY > 250)) {
-        setheaderGradient(true) 
-      } else setheaderGradient(false);
-    }
-    window.addEventListener('scroll', () => {
-      handleScroll();
-      return () =>{
-        window.removeEventListener('scroll', handleScroll );
-      }
-    },)
-  }, [])
-=======
       if (window.scrollY > 250) {
         setheaderGradient(true);
       } else setheaderGradient(false);
@@ -37,7 +24,6 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
->>>>>>> 735a6b478728db860dc36ca98d7b024b48145e52
 
   return (
     <div
@@ -77,7 +63,7 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
               <span>Pricing</span>
             </div>
             <div className={`${styles.authcontainer}`}>
-              <Link href={'/signin'}
+              <Link href={'auth/signin'}
                 className={`${styles.otherbtns} ${styles.authbtn} ${styles.signinbtn}`}
               >
                 signin

@@ -8,6 +8,7 @@ export default function Home(): JSX.Element {
     <GenericLayout>
       <Head>
         <title>Home Page.....</title>
+        <meta property="og:title" content="My page title" key="title" />
       </Head>
       {/* <div style={{marginTop:"96px"}}> */}
         <Banners />
