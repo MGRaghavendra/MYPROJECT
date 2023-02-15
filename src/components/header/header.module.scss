@@ -83,6 +83,10 @@
                         align-items: center;
                         justify-content: flex-end;
                         width: 50px;
+                        a{
+                            display: flex;
+                            align-items: center;
+                        }
                         img{
                             margin-right: 0px;
                             border-right: 1px solid #ffffffbf;

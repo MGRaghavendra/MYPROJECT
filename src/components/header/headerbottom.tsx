@@ -34,7 +34,7 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
       <div className={`${styles.header_bottominner}`}>
         <div className={`${styles.headerbottom_left}`}>
           <div className={`${styles.logo}`}>
-            <Image
+            <img
               src="https://platform.yupptv.com/assets/images/logo.svg"
               width={85}
               height={30}
@@ -51,7 +51,7 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
                 alt=""
              /> */}
               <Link href="search">
-                <Image
+                <img
                   src={`${appConfig.cloudpath}/images/search-icon.svg`}
                   width={100}
                   height={20}

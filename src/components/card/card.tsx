@@ -12,16 +12,14 @@ export const Card = (props: any): JSX.Element => {
   const cpImage = cardType === "overlayIcon_poster" ? getAbsolutPath(cardDetails.display.parentIcon) : '';
   return <div className={`${styles.card}`}>
     <div className={`${styles.card_inner}`}>
-      <Image
-        loader={() => src}
+      <img
         src={src}
         alt="Picture of the author" width={100} height={132}
       />
       <div className={`${styles.card_footer}`}>
         <div className={`${styles.card_footer_cpimage}`}>
           {
-            !!cpImage && <Image
-              loader={() => cpImage}
+            !!cpImage && <img
               src={cpImage}
               alt="" width={46} height={26}
             />

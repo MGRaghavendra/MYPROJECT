@@ -8,11 +8,7 @@ export default function Sections():JSX.Element{
     console.log(sections)
     return <div className={style.sections}>
         {
-            sections.map((section,index)=>{
-                return <>
-                <Section key={index} section={section}/>
-                </>
-            })
+            sections.map((section,index)=><Section key={index} section={section}/>)
         }
     </div>
 }
