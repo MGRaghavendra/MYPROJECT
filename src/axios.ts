@@ -37,3 +37,22 @@ export async function axiosget<T>(config:axiosgetparams):Promise<T | null >{
     }
     return null;
 }
+
+export async function axiosPost<T>(config:axiosgetparams, payload:any):Promise<T | null > {
+    if(Axios) {
+        try{
+            let response:AxiosResponse<T> = await Axios.post<T>(config.url,payload,{
+                headers:config.headers,
+                params:config.params
+            })
+            let data = response.data;
+            console.log(data)
+            return data
+        } catch(err) {
+            if(err instanceof Error){
+                throw new Error(err.message)
+            }
+        }
+    }
+    return null;
+}

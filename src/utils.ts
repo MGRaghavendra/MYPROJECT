@@ -22,6 +22,10 @@ export function getBoxId():string{
     }
 }
 
+export function setSessionToken(key:string, value:any):string | void{
+    return localStorage.setItem(key,value)
+}
+
 export function getsessionToken():string | null{
     return localStorage.getItem('session-id')
 }

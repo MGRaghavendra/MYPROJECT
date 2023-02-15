@@ -1,0 +1,124 @@
+.singin_main {
+
+    .signInbgMain {
+        // height: 100vh;
+        background: url(https://d2ivesio5kogrp.cloudfront.net/static/yvs/images/sign-in-bg.jpg) no-repeat 50% fixed;
+        background-size: cover;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0 auto;
+        position: fixed;
+
+        .logo {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            cursor: pointer;
+        }
+
+    }
+
+    .singin_modal {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+        .singin_modal_inner {
+            padding: 40px 30px 60px;
+            background: #262626;
+            text-align: center;
+            margin: 60px 0;
+            width: 480px;
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 40px;
+                font-weight: 400;
+                color: #fff;
+            }
+
+            .signin_form {
+                .signin_form_tag {
+                    .form_rows {
+                        .signInBtn {
+                            margin-top: 40px;
+                            font-size: 14px;
+                            background: #ff7f12;
+                            height: 44px;
+                            line-height: 44px;
+                            width: 100%;
+                            margin-bottom: 20px;
+                            cursor: pointer;
+                            outline: none !important;
+                            color: #fff;
+                            border-radius: 2px;
+                            border: 0;
+                            text-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+
+                            &:hover {
+                                background: #cc6810;
+                            }
+                        }
+
+                        .signInBtnMobile {
+                            background: #434c52;
+
+                            &:hover {
+                                background: #434c52;
+                            }
+                        }
+                    }
+
+                }
+
+                .divider {
+                    height: 20px;
+                    position: relative;
+                    border-bottom: 1px solid #898b95;
+                    width: 100%;
+                    color: #898b95;
+
+                    &::after {
+                        content: 'OR';
+                        top: 11px;
+                        left: 46%;
+                        position: absolute;
+                        padding: 0 8px;
+                        background: #262626;
+                    }
+                }
+            }
+
+            .siginInInfo {
+                .tc {
+                    text-align: center;
+                    font-size: 12px;
+                    color: #898b93;
+
+                    a {
+                        color: #eee;
+                        text-decoration: underline;
+                        opacity: .75;
+                    }
+                }
+
+                .noAccount {
+                    margin-top: 26px;
+                    font-size: 14px;
+                    color: #fff;
+                    opacity: .4;
+
+                    a {
+                        color: #ff7f12;
+                        opacity: 1;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

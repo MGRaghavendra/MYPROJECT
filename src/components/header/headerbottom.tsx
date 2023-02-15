@@ -63,11 +63,11 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
               <span>Pricing</span>
             </div>
             <div className={`${styles.authcontainer}`}>
-              <span
+              <Link href={'auth/signin'}
                 className={`${styles.otherbtns} ${styles.authbtn} ${styles.signinbtn}`}
               >
                 signin
-              </span>
+              </Link>
               <span
                 className={`${styles.otherbtns} ${styles.authbtn} ${styles.signupbtn} ${styles.authactivebtn}`}
               >

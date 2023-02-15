@@ -13,6 +13,7 @@ import { menuInterface } from "@/shared";
 import { useRouter } from "next/router";
 
 function Layout({ children }: { children: ReactNode }) {
+  const { asPath } = useRouter();
   const [isLoading, setLoading] = useState<boolean>(false);
   const [menus, setMenus] = useState<menuInterface[]>([]);
   useEffect(function () {
@@ -32,9 +33,9 @@ function Layout({ children }: { children: ReactNode }) {
       <>
         {isLoading === true && (
           <>
-            <Header />
+           {!asPath.includes('sign') && <Header />}
             {children}
-            <Footer />
+            {!asPath.includes('sign') && <Footer />}
           </>
         )}
       </>
