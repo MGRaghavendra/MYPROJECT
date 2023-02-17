@@ -6,8 +6,7 @@ import Link from 'next/link'
 export const  SignInBg = ():JSX.Element =>{
     return <div className={`${styles.signInbgMain}`}>
         <div className={`${styles.logo}`}>
-       <Link href={"/"}> <Image
-        loader={() => 'https://platform.yupptv.com/assets/images/logo.svg'}
+       <Link href={"/"}> <img
         src={'https://platform.yupptv.com/assets/images/logo.svg'}
         alt="Picture of the author" width={120} height={41}
       /></Link>

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Card } from "./card/card";
+import { Card } from "@/components/card/card";
 import { SectionTitle } from "./section-title/SectionTitle";
 import styles from "./Section.module.scss";
 
