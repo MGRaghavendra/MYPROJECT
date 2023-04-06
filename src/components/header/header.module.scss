@@ -6,7 +6,7 @@
     z-index: 99;
     // background-color: #141414;
     .header_top{
-        background-color: #141414;
+        background-color: #0f0f1c;
         .header_topinner{
             display: flex;
             flex-direction: row;
@@ -43,7 +43,7 @@
         }
     }
     .header_bottom{
-        background: #222;
+        background: #18182f;
         height: 62px;
         padding: 0.1px;
         .header_bottominner{
@@ -54,10 +54,9 @@
             .headerbottom_left{
                 display: flex;
                 align-items: center;
-                justify-content: center;
                 .logo{
                     img{
-                        width: 85px;
+                        width: 68px;
                         align-items: center;
                     }
                 }

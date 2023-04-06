@@ -1,4 +1,6 @@
-import { systemconfigs, systemfeatures, loactionapi } from "./init";
+import { appConfig } from "./appconfig";
+import {default as clientCookie} from "js-cookie";
+
 
 function GUID():string{
     function s4() {
@@ -10,15 +12,26 @@ function GUID():string{
     return box_ID;
 }
 
+export function isclient():boolean{
+    return (typeof window == "undefined")?false:true
+}
+
+export function isserver():boolean{
+    return (typeof window == "undefined")?true:false
+}
+
 export function getBoxId():string{
-    let boxId = localStorage.getItem('box-id')
-    if(boxId !== null){
-        return boxId
+    if(isclient()){
+        let boxId = clientCookie.get('boxId')
+        if(boxId){
+            return boxId
+        }
+        else{
+            return ''
+        }
     }
     else{
-        boxId = GUID();
-        localStorage.setItem('box-id',boxId)
-        return boxId
+        return GUID();
     }
 }
 
@@ -27,6 +40,9 @@ export function setSessionToken(key:string, value:any):string | void{
 }
 
 export function getsessionToken():string | null{
+    if(appConfig.sessionId != undefined){
+        return appConfig.sessionId
+    }
     return localStorage.getItem('session-id')
 }
 
@@ -36,22 +52,6 @@ export function getFromlocalStorage(key:string):string | null{
 
 
 
-export const retriveSession = () => {
-    let initjson = getFromlocalStorage('initjson');
-    let sessionId = getsessionToken(); 
-    let boxId= getFromlocalStorage('box-id');
-    let locationData = getFromlocalStorage('location');
-    let systemconfig: string | any = getFromlocalStorage('systemconfigs');
-    let systemfeature = getFromlocalStorage('systemfeature');
-    if (!!systemconfig?.menus || !!!systemfeature) {
-        systemconfigs();
-        systemfeatures();
-    }
-    if (!locationData) {
-        loactionapi();
-    }
-
-}
 
 export const getAbsolutPath = (resourcePath:any) =>{
     if (resourcePath.indexOf('http://') == '0' || resourcePath.indexOf('https://') == '0') {
@@ -85,3 +85,11 @@ const getProfile = (resource?: string) => {
         }
     }
 }
+
+export function getplatform(userAgent:string){
+    if(userAgent.indexOf('mobile')>-1){
+        return 'mobileweb';
+    }
+    return 'web'
+} 
+

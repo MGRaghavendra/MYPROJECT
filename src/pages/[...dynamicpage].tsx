@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context:GetServerSi
   const url = await getBaseApi();
   let arr = context.resolvedUrl.split('/')
   arr.shift()
-  let seo_url = arr.join('/') == '' ? "home" :arr.join('/')
+  let seo_url = arr.join('/') == "/" ? "home" :arr.join('/')
   let seodata =  await fetchdata(`${url}/service/api/v1/page/seo?path=${seo_url}`,{
     'session-id':cookies.sessionId,
     'box-id':cookies.boxId,

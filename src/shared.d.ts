@@ -1,3 +1,15 @@
+export interface initJsoninterface {
+  api: string
+  heURL: string
+  isSupported: boolean
+  location: string
+  otpURL: string
+  pgURL: string
+  product: string
+  search: string
+  tenantCode: string
+}
+
 export interface menuInterface {
   code: string;
   description: string;
@@ -34,6 +46,21 @@ export interface bannerInterface {
 
 export interface cardInterface {
   
+}
+
+export interface seoInterface{
+  title?:string;
+  description:?string;
+  keywords?:string;
+  metaTags?:{
+    tagType?:string;
+    tagName?:string;
+    content?:string
+  }[]
+}
+
+export interface GenericLayoutpropsInterface{
+  banners:bannerInterface[]
 }
   
 

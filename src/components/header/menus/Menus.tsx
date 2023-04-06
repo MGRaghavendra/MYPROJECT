@@ -8,7 +8,7 @@ export default function Menus({ menus }: props): JSX.Element {
   return (
     <div className={`${styles.menus}`}>
       {menus.map((menu, index) => (
-        <Menu menu={menu} key={index} />
+        index <= 5 && <Menu menu={menu} key={index} />
       ))}
     </div>
   );

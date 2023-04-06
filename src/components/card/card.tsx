@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './card.module.scss'
 import { getAbsolutPath } from "@/utils";
+import { useRouter } from 'next/router';
 
 
 
@@ -10,7 +11,15 @@ export const Card = (props: any): JSX.Element => {
   const { cardDetails } = props;
   const src = getAbsolutPath(cardDetails.display.imageUrl);
   const cpImage = cardType === "overlayIcon_poster" ? getAbsolutPath(cardDetails.display.parentIcon) : '';
-  return <div className={`${styles.card}`}>
+  const {push} = useRouter()
+  const gotoPage = (e:React.MouseEvent<HTMLDivElement>)=>{
+    e.preventDefault()
+    let path = cardDetails.target.path;
+    // if(path.indexOf('movie')>-1){
+      push(cardDetails.target.path)
+    // }
+  }
+  return <div className={`${styles.card}`} onClick={gotoPage}>
     <div className={`${styles.card_inner}`}>
       <img
         src={src}
