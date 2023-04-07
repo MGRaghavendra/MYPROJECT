@@ -8,6 +8,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: #0f0f1c;
     .hasGradient {
         background-color: transparent !important;
         position: relative;
@@ -44,5 +45,31 @@ body {
             background-color: #fff !important;
         }
     }
+
+    .Loader{
+        height:75px;
+        width:75px;
+        border-radius:50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+          
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+    }
+
+
 
 }

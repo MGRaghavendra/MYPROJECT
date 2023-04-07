@@ -12,8 +12,8 @@ export default function HeaderTop(): JSX.Element {
           <span className={`${styles.text}`}>Languages</span>
           <span className={`${styles.downarrow}`}></span>
         </div>
-        <div className={`${styles.content} ${styles.about}`}>About</div>
-        <div className={`${styles.content} ${styles.support}`}>
+        <div className={`${styles.content}`}>About</div>
+        <div className={`${styles.content}`}>
           <img
             src={`${appConfig.cloudpath}/images/header-support-mail.svg`}
             alt=""

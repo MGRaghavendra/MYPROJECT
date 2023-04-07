@@ -2,7 +2,7 @@ interface appConfig {
     [key:string]:string
 }
 export const appConfig:appConfig={
-    'cloudpath':'https://d2ivesio5kogrp.cloudfront.net/static/firstshows',
+    'cloudpath':'https://d2ivesio5kogrp.cloudfront.net/static/reeldrama',
     'bannerImgpath':'https://d229kpbsb5jevy.cloudfront.net/firstshows'
 }
 

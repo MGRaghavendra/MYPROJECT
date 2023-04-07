@@ -1,28 +1,37 @@
-import Head from "next/head";
 import Banners from "@/components/banners/banners";
 import Sections from "@/components/Sections/Sections";
 import GenericLayout from "./GenericLayout";
-import { useContext } from "react";
 import { PageContext } from "@/context/pagecontext";
+import DetailsPage from "@/components/Details/details";
 
 export default function DynamicLayout(): JSX.Element {
-  // const pagedata = useContext(PageContext)
-  // console.log(pagedata)
   return (
     <GenericLayout>
-      {/* <div style={{marginTop:"96px"}}> */}
       <PageContext.Consumer>
-        {(value) => {
-          console.log(value);
+        {({ info }) => {
+          console.log('hello....')
+          console.log(info)
           return (
+            
             <>
-              <Banners />
-              <Sections />
+              {info.pageType == "content" && (
+                <>
+                  <Banners />
+                  <Sections />
+                </>
+              )}
+              {
+                info.pageType == "details" && (
+                  <>
+                  <DetailsPage/>
+                  <Sections/>
+                  </>
+                )
+              }
             </>
           );
         }}
       </PageContext.Consumer>
-      {/* </div> */}
     </GenericLayout>
   );
 }
