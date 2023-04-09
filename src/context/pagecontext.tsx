@@ -6,7 +6,8 @@ import { createContext } from "react";
 const initialcontext:pagecontextInterface={
     banners:[],
     sections:[],
-    info:{}
+    info:{},
+    content:[],
 }
 
 export const PageContext = createContext<pagecontextInterface>(initialcontext)

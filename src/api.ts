@@ -2,6 +2,7 @@ import { fetchdata } from "./fetchapi";
 import { initJsoninterface } from "./shared";
 import { Axios,axiosget, } from "./axios";
 import getConfig from "next/config";
+import { Init } from "./clientapis";
 
 export const getBaseApi = async ():Promise<string>=>{
     const {publicRuntimeConfig} = getConfig()
@@ -26,10 +27,15 @@ export async function systemconfigapi(headers:any):Promise<string | void> {
           headers:headers
         });
         if (response?.status) {
+          response.response.expireTime = new Date().getTime() + 7200000;
           localStorage?.setItem("systemconfigs", JSON.stringify(response.response));
           localStorage?.setItem("resourceProfiles", JSON.stringify(response.response.resourceProfiles));
-          return response.response;
+          return JSON.stringify(response.response);
         } 
+        if(response?.status == false && response.error.code == 401){
+          localStorage.removeItem('sessionId')
+          Init();
+        }
       } catch (err) {
         console.log(err);
       }
@@ -43,13 +49,17 @@ export async function systemconfigapi(headers:any):Promise<string | void> {
           headers:headers
         });
         if (response?.status) {
+          response.response.expireTime = new Date().getTime() + 7200000;
           localStorage.setItem(
             "systemfeature",
             JSON.stringify(response.response)
           );
-          return response.response;
+          return JSON.stringify(response.response);
         }
-        return 'done from features..'
+        if(response?.status == false && response.error.code == 401){
+          localStorage.removeItem('sessionId')
+          Init();
+        }
       } catch (err) {
         console.log(err);
       }

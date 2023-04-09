@@ -1,8 +1,9 @@
 import styles from "./footer.module.scss";
 import { appConfig } from "@/appconfig";
 import Link from "next/link";
-
-export default function Footer():JSX.Element{
+import { memo } from "react";
+function Footer():JSX.Element{
+    console.log('footer...')
     return <div>
         <div className={`${styles.footer_container}`}>
             <div className={`${styles.footerDivider}`}>
@@ -103,3 +104,5 @@ export default function Footer():JSX.Element{
         </div>
     </div>
 }
+
+export default memo(Footer)

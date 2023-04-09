@@ -68,6 +68,7 @@ export interface pagecontextInterface{
       pageType?:string
       path?:string
   }
+  content:any[]
 }
   
 
