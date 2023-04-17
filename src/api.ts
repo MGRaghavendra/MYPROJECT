@@ -22,10 +22,12 @@ export const getBaseApi = async ():Promise<string>=>{
 
 export async function systemconfigapi(headers:any):Promise<string | void> {
       try {
+        console.log(headers)
         let response = await axiosget<any>({
           url:"service/api/v1/system/config",
           headers:headers
         });
+        console.log(response)
         if (response?.status) {
           response.response.expireTime = new Date().getTime() + 7200000;
           localStorage?.setItem("systemconfigs", JSON.stringify(response.response));

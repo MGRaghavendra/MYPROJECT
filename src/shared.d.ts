@@ -71,4 +71,8 @@ export interface pagecontextInterface{
   content:any[]
 }
   
-
+export interface usercontextInterface{
+  menus: menuInterface[];
+  systemconfigs:{},
+  userDetails:{},
+}

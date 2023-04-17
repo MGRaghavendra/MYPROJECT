@@ -13,7 +13,7 @@ function createMeta({property,name,content}:{property?:string,name:string,conten
     }
 }
 
-export default function ({seodata}:{seodata:seoInterface}):JSX.Element{
+export default function SeoData({seodata}:{seodata:seoInterface}):JSX.Element{
     const {asPath} = useRouter()
     return <Head>
         {seodata.title ? <title>{seodata.title}</title> : <title>{`${asPath.split('/')[1]}-FirstShows`}</title>}

@@ -1,8 +1,9 @@
-import { appConfig } from "./appconfig";
+
 import {default as clientCookie} from "js-cookie";
+import getConfig from "next/config";
 
 
-
+let appConfig = getConfig().publicRuntimeConfig.appconfig
 
 export function isclient():boolean{
     return (typeof window == "undefined")?false:true

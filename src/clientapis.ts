@@ -24,8 +24,10 @@ export const getsystemConfigs = async ()=>{
             "session-id":clientCookie.get('sessionId'),
             "tenant-code":clientCookie.get('tenantCode')
         }) || "" 
-       systemConfigsobj = JSON.parse(systemConfigs)
-       return systemConfigsobj
+        if (systemConfigs) {
+          systemConfigsobj = JSON.parse(systemConfigs);
+          return systemConfigsobj;
+        }
     }
 }
 
@@ -41,9 +43,10 @@ export const getsystemFeature = async ()=>{
             "session-id":clientCookie.get('sessionId'),
             "tenant-code":clientCookie.get('tenantCode')
         }) || "" 
-        console.log(systemfeature)
-        systemfeatureobj = JSON.parse(systemfeature)
-       return systemfeatureobj
+       if (systemfeature) {
+         systemfeatureobj = JSON.parse(systemfeature);
+         return systemfeatureobj;
+       }
     }
 }
 

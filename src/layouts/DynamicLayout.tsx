@@ -4,13 +4,13 @@ import GenericLayout from "./GenericLayout";
 import { PageContext } from "@/context/pagecontext";
 import DetailsPage from "@/components/Details/details";
 import { memo } from "react";
+import TvGuide from "@/components/tvguide/Tvguide";
 
 function DynamicLayout(): JSX.Element {
   return (
     <GenericLayout>
       <PageContext.Consumer>
         {({ info }) => {
-            console.log(info)
             return (
               <>
                 {info.pageType == "content" && (
@@ -23,6 +23,16 @@ function DynamicLayout(): JSX.Element {
                   <>
                     <DetailsPage />
                     <Sections />
+                  </>
+                )}
+                {(info.pageType == "content" && info.path == "catchup") && (
+                  <>
+                  <TvGuide/>
+                  </>
+                )}
+                 {(info.pageType == "list") && (
+                  <>
+                  <h1>Grid Page....</h1>
                   </>
                 )}
               </>

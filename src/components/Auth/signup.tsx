@@ -3,7 +3,7 @@ import { SignInBg } from "./signin-bg"
 import styles from "./signin.module.scss"
 
 
-export const SignUp = ():JSX.Element => {
+const SignUp = ():JSX.Element => {
     return <>
          <Head>
         <title>SignUp Page.....</title>
@@ -14,3 +14,5 @@ export const SignUp = ():JSX.Element => {
       </div>
     </>
 }
+
+export default SignUp

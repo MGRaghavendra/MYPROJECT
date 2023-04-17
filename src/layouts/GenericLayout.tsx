@@ -69,7 +69,7 @@ export default function GenericLayout({
   // const { menus }: { menus: menuInterface[] } = useContext(UserContext);
   const [pagestate, setPagestate] =
     useState<pagecontextInterface>(initialpagestate);
-  const { asPath, reload } = useRouter();
+  const { asPath } = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(
@@ -78,34 +78,33 @@ export default function GenericLayout({
       let arr = asPath.split("/");
       arr.shift();
       let targetPath = arr.join("/") == "" ? "home" : arr.join("/");
-      apicall(targetPath)
-        .then((data) => {
-          if (data?.status == true) {
-            setPagestate((pagestate) => ({
-              ...pagestate,
-              banners: data.response?.banners,
-              sections: getdata(data.response?.data,'section'),
-              info: data.response?.info,
-              content:getdata(data.response?.data,'content')
-            }));
-            setLoading(false);
-          } else if (data?.status == false && data?.error?.code == 401) {
-            clientCookie.remove("boxId");
-            clientCookie.remove("tenantCode");
-            clientCookie.remove("sessionId");
-            // setLoading(false)
-            reload();
-          } else {
-            setLoading(false);
-            console.log(data);
-            console.log("failed....");
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-    [asPath]
+        apicall(targetPath)
+          .then((data) => {
+            if (data?.status == true) {
+              setPagestate((pagestate) => ({
+                ...pagestate,
+                banners: data.response?.banners,
+                sections: getdata(data.response?.data, "section"),
+                info: data.response?.info,
+                content: getdata(data.response?.data, "content"),
+              }));
+              setLoading(false);
+            } else if (data?.status == false && data?.error?.code == 401) {
+              clientCookie.remove("boxId");
+              clientCookie.remove("tenantCode");
+              clientCookie.remove("sessionId");
+              setLoading(false)
+             window.location.reload()
+            } else {
+              setLoading(false);
+              console.log(data);
+              console.log("failed....");
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    },[asPath]
   );
   return (
     <PageContext.Provider value={{ ...pagestate }}>
