@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import Layout from "@/layouts/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

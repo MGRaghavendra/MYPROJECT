@@ -16,9 +16,9 @@ export default function DynamicPage({ seodata }:{seodata:seoInterface}) {
       {
         <Seodata seodata={seodata} />
       }
-       <Layout>
+       {/* <Layout> */}
           <DynamicLayout/>
-       </Layout>
+       {/* </Layout> */}
     </>
   );
 }
