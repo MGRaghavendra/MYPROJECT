@@ -1,4 +1,4 @@
-import { bannerInterface, pagecontextInterface } from "@/shared";
+import { pagecontextInterface } from "@/shared";
 import { createContext } from "react";
 
 

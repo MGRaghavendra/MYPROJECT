@@ -30,7 +30,6 @@ export const Card = (props: any): JSX.Element => {
       noofcards: defaultconfigs.cardCount,
       cardType,
   });
-  console.log(cardobj)
   return (
     <>
       {cardType == "roller_poster" && (

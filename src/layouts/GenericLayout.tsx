@@ -1,13 +1,13 @@
 import { ReactNode,  useEffect, useState } from "react";
 import { axiosget } from "@/axios";
-import { pagecontextInterface } from "@/shared";
+import { pagecontextInterface, responseInterface } from "@/shared";
 import { PageContext } from "@/context/pagecontext";
 import { useRouter } from "next/router";
 import { default as clientCookie } from "js-cookie";
 import { getdata } from "@/data.manager";
 
 
-async function apicall(targetPath: string) {
+async function apicall(targetPath:string):Promise<responseInterface>{
   let configs = {
     url: "service/api/v1/page/content",
     headers: {
@@ -20,11 +20,7 @@ async function apicall(targetPath: string) {
       count: 40,
     },
   };
-  let data = await axiosget<{
-    status: boolean;
-    response?: any;
-    error?: any;
-  } | null>(configs);
+  let data = await axiosget<responseInterface>(configs);
   return data;
 }
 

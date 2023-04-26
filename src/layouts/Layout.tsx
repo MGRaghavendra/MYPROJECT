@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { ReactNode, useEffect, useState } from "react";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
@@ -9,39 +9,49 @@ import { Init } from "@/clientapis";
 import { usercontextInterface } from "@/shared";
 import { getFromlocalStorage } from "@/utils";
 
-const initialstate: usercontextInterface= {
+const initialstate: usercontextInterface = {
   menus: [],
   systemconfigs: [],
-  userDetails:{}
+  userDetails: {},
+  systemfeatures: {},
 };
 
 function Layout({ children }: { children: ReactNode }) {
-  const { asPath } = useRouter();
+  const { asPath, reload } = useRouter();
   const [isLoading, setLoading] = useState<boolean>(true);
   const [menus, setMenus] = useState<menuInterface[]>([]);
-  const [userconfigs, setuserConfigs] = useState<usercontextInterface>(initialstate);
+  const [userconfigs, setuserConfigs] =
+    useState<usercontextInterface>(initialstate);
   useEffect(
     function () {
       let isrenderd = false;
-      Init().then(({ systemconfigs }) => {
-        if (isrenderd == false) {
-          systemconfigs && setMenus(systemconfigs.menus);
-          let stringifyuserdetails = getFromlocalStorage('userDetails')
-          let userdetails={}
-          if(stringifyuserdetails !== null){
-            userdetails = JSON.parse(stringifyuserdetails);
+      Init()
+        .then(({ systemConfigs, systemfeature }) => {
+          if (
+            (systemConfigs.status == false && systemConfigs?.error?.code == 401) ||
+            (systemfeature.status == false && systemfeature?.error?.code == 401)
+          ) {
+            localStorage.clear();
+            reload();
+          } else {
+            if (isrenderd == false) {
+              systemConfigs.response && setMenus(systemConfigs.response.menus);
+              let stringifyuserdetails = getFromlocalStorage("userDetails");
+              let userdetails = {};
+              if (stringifyuserdetails !== null) {
+                userdetails = JSON.parse(stringifyuserdetails);
+              }
+              systemConfigs.response &&
+                setuserConfigs({
+                  ...userconfigs,
+                  systemconfigs: systemConfigs.response,
+                  menus: systemConfigs.response.menus,
+                  userDetails: userdetails,
+                });
+              setLoading(false);
+            }
           }
-          systemconfigs && setuserConfigs({
-            ...userconfigs,
-            systemconfigs: systemconfigs,
-            menus: systemconfigs.menus,
-            userDetails:userdetails
-          });
-          setLoading(false);
-        }
-      }).then(()=>{
-        
-      });
+         })
       return () => {
         setLoading(false);
         isrenderd = true;
@@ -50,16 +60,16 @@ function Layout({ children }: { children: ReactNode }) {
     [asPath]
   );
   return (
-    <UserContext.Provider value={{...userconfigs}}>
-            <>
-              {isLoading === false && (
-                <>
-                  {!asPath.includes("sign") && <Header />}
-                  {children}
-                  {!asPath.includes("sign") && <Footer />}
-                </>
-              )}
-            </>
+    <UserContext.Provider value={{ ...userconfigs }}>
+      <>
+        {isLoading === false && (
+          <>
+            {!asPath.includes("sign") && <Header />}
+            {children}
+            {!asPath.includes("sign") && <Footer />}
+          </>
+        )}
+      </>
     </UserContext.Provider>
   );
 }

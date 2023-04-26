@@ -1,13 +1,7 @@
 import Seodata from "@/components/seodata/seodata";
-import { fetchdata } from "@/fetchapi";
-import { getBaseApi } from "@/api";
-import Layout from "@/layouts/Layout";
 import { seoInterface } from "@/shared";
-import { createSession, initAPIS } from "@/serverapis";
-import { parse, serialize } from "cookie";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import DynamicLayout from "@/layouts/DynamicLayout";
-import seodata from "@/components/seodata/seodata";
 
 
 export default function DynamicPage({ seodata }:{seodata:seoInterface}) {
