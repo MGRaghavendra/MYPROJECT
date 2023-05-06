@@ -1,4 +1,4 @@
-import { bannerInterface, pagecontextInterface } from "@/shared";
+import { pagecontextInterface } from "@/shared";
 import { createContext } from "react";
 
 
@@ -6,7 +6,8 @@ import { createContext } from "react";
 const initialcontext:pagecontextInterface={
     banners:[],
     sections:[],
-    info:{}
+    info:{},
+    content:[],
 }
 
 export const PageContext = createContext<pagecontextInterface>(initialcontext)

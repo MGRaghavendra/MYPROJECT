@@ -9,7 +9,8 @@ export default function Menu({ menu }: props) {
   const { asPath } = useRouter();
   const isActive: boolean = ((asPath == `/${menu.targetPath}`) || (asPath == '/' && menu.targetPath == "home")) ? true : false;
   return (
-    <Link href={menu.targetPath !== "home" ? `/${menu.targetPath}` : "/"}>
+    // <Link href={menu.targetPath !== "home" ? `/${menu.targetPath}` : "/"}> 
+    <Link href={ `/${menu.targetPath}`}>
       <div className={`${styles.menu} ` + (isActive ? styles.active : "")}>
         <span>{menu.displayText}</span>
       </div>

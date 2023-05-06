@@ -1,18 +1,23 @@
-import { appConfig } from "@/appconfig";
 import styles from "./header.module.scss";
 import { menuInterface } from "@/shared";
 import Menus from "./menus/Menus";
-import Image from "next/image";
-import clsx from "classnames";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { getFromlocalStorage } from "@/utils";
 interface props {
   menus: menuInterface[];
 }
 
 export default function HeaderBottom({ menus }: props): JSX.Element {
   const [headerGradient, setheaderGradient] = useState(Boolean);
-
+  let systemConfigsstr = getFromlocalStorage("systemconfigs");
+  let systemconfigs;
+  if (systemConfigsstr) {
+    systemconfigs = JSON.parse(systemConfigsstr);
+  } else {
+    systemconfigs = {};
+  }
+  let showPackages = systemconfigs && systemconfigs.configs && systemconfigs.configs.showPackages;
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 250) {
@@ -59,11 +64,15 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
                 />
               </Link>
             </div>
-            <div className={`${styles.otherbtns} ${styles.pricing}`}>
-              <span>Pricing</span>
-            </div>
+            {showPackages == "true" && (
+              <div className={`${styles.otherbtns} ${styles.pricing}`}>
+                <span>Pricing</span>
+              </div>
+            )}
+
             <div className={`${styles.authcontainer}`}>
-              <Link href={'auth/signin'}
+              <Link
+                href={"auth/signin"}
                 className={`${styles.otherbtns} ${styles.authbtn} ${styles.signinbtn}`}
               >
                 signin

@@ -1,9 +1,10 @@
-import { appConfig } from "@/appconfig";
 import { PageContext } from "@/context/pagecontext";
 import { bannerInterface } from "@/shared";
 import { ReactNode, useContext, useEffect, useState } from "react";
 import styles from "./banners.module.scss";
 import Slider, { Settings } from "react-slick";
+import getConfig from "next/config";
+let appConfig = getConfig().publicRuntimeConfig.appconfig
 function Banner({ banner }: { banner: bannerInterface }) {
   return (
     <div className={styles.imageContainer}>

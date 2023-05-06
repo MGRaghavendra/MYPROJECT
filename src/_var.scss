@@ -2,3 +2,39 @@
 $font-family-primary: 'Poppins', sans-serif;
 $font-family-seconday: 'Lato', sans-serif;
 $font-awesome:'FontAwesome';
+$section-padding-left:null !default;
+@mixin sections{
+    @media only screen and (max-width:1366px){
+        $section-padding-left:50px;
+        padding-left: $section-padding-left;
+    }
+}
+
+@mixin cardImage($cardType){
+    @if $cardType == overlayposter {
+        @media only screen and (max-width:1366px){
+            $section-padding-left:50px;
+            $card-width-px:calc(($section-padding-left*100)/1366);
+            $card-width:calc((1366px -  $card-width-px)/ 5);
+            height: calc($card-width / 1.777777777777778);
+            width: 100%;
+            @content;
+        }
+    }
+}
+
+@mixin card($cardType){
+    @if $cardType == overlayposter {
+        @media only screen and (max-width:1366px){
+            $section-padding-left:50px;
+            $card-right-margin:10px;
+            $card-width-px:calc(($section-padding-left*100)/1366);
+            $card-width:calc((1366px -  $card-width-px)/ 5);
+            width:$card-width;
+            min-width: $card-width;
+            // width: 50%;
+            @content;
+        }
+    }
+}
+

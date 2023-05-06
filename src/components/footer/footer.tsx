@@ -1,8 +1,10 @@
 import styles from "./footer.module.scss";
-import { appConfig } from "@/appconfig";
 import Link from "next/link";
-
-export default function Footer():JSX.Element{
+import { memo } from "react";
+import getConfig from "next/config";
+let appConfig = getConfig().publicRuntimeConfig.appconfig
+function Footer():JSX.Element{
+    console.log('footer...')
     return <div>
         <div className={`${styles.footer_container}`}>
             <div className={`${styles.footerDivider}`}>
@@ -16,32 +18,32 @@ export default function Footer():JSX.Element{
                         <span>TV App's</span>
                         <ul>
                             <li>
-                                <Link target="_blank" href="https://play.google.com/">
+                                <Link target="_blank" href="https://play.google.com/" rel="noopener noreferrer">
                                     <img alt="androidtv" src={`${appConfig.cloudpath}/images/multi-device-android-tv.png`}/></Link>
                             </li>
                             <li>
-                                <a target="_blank" href="https://play.google.com/">
+                                <a target="_blank" href="https://play.google.com/" rel="noopener noreferrer">
                                     <img alt="androidtv" src={`${appConfig.cloudpath}/images/multi-device-fire-tv.png`}/></a>
                             </li>
                             <li>
 
-                                <a target="_blank" href="https://channelstore.roku.com/">
+                                <a target="_blank" href="https://channelstore.roku.com/" rel="noopener noreferrer">
                                     <img  alt="rokutv" src={`${appConfig.cloudpath}/images/roku-tv.png`}/></a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://itunes.apple.com/">
+                                <a target="_blank" href="https://itunes.apple.com/" rel="noopener noreferrer">
                                     <img alt="apple" src={`${appConfig.cloudpath}/images/multi-device-apple-tv.png`}/></a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://itunes.apple.com/">
+                                <a target="_blank" href="https://itunes.apple.com/" rel="noopener noreferrer">
                                     <img alt="apple" src={`${appConfig.cloudpath}/images/multi-device-apple-tv.png`}/></a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://us.lgappstv.com/main/tvapp">
-                                    <img alt="lgtv" src={`${appConfig.cloudpath}/images/multi-device-lg.png`}/></a>
+                                <a target="_blank" href="https://us.lgappstv.com/main/tvapp" rel="noopener noreferrer">
+                                    <img alt="lgtv" src={`${appConfig.cloudpath}/images/multi-device-lg.png`}/ ></a>
                             </li>
                             <li>
-                                <a target="_blank" href="https://www.samsung.com/in/apps/galaxy-store/">
+                                <a target="_blank" href="https://www.samsung.com/in/apps/galaxy-store/" rel="noopener noreferrer">
                                     <img alt="samsung" src={`${appConfig.cloudpath}/images/multi-device-samsung.png`}/></a>
                             </li>
                         </ul>
@@ -51,11 +53,11 @@ export default function Footer():JSX.Element{
                         <span>Mobile App's</span>
                         <ul>
                             <li>
-                                <a target="_blank" href="https://itunes.apple.com/">
+                                <a target="_blank" href="https://itunes.apple.com/" rel="noopener noreferrer">
                                     <img alt="iosapp" src={`${appConfig.cloudpath}/images/multi-device-ios-2.png`}/></a>
                             </li>
                             <li>
-                                <a target="_blank" href="http://ottapps.revlet.net/apps/android/yvs/YVS_V0.1.apk">
+                                <a target="_blank" href="http://ottapps.revlet.net/apps/android/yvs/YVS_V0.1.apk" rel="noopener noreferrer">
                                     <img alt="android-mobile" src={`${appConfig.cloudpath}/images/multi-device-android-mobile.png`}/></a>
                             </li>
                         </ul>
@@ -103,3 +105,5 @@ export default function Footer():JSX.Element{
         </div>
     </div>
 }
+
+export default memo(Footer)

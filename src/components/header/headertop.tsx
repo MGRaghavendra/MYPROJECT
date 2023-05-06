@@ -1,5 +1,6 @@
 import styles from "./header.module.scss";
-import { appConfig } from "@/appconfig";
+import getConfig from "next/config";
+let appConfig = getConfig().publicRuntimeConfig.appconfig
 export default function HeaderTop(): JSX.Element {
   return (
     <div className={`${styles.header_top}`}>

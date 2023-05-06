@@ -1,7 +1,7 @@
 import styles from "./SearchInput.module.scss";
-import Image from "next/image";
-import { appConfig } from "@/appconfig";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
+import getConfig from "next/config";
+let appConfig = getConfig().publicRuntimeConfig.appconfig
 
 type propTypes = {
     searchtext:string

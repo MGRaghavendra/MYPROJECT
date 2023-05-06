@@ -1,13 +1,12 @@
-import { menuInterface } from "@/shared";
-import {createContext} from "react";
+import {ReactNode, createContext, useState} from "react";
+import { usercontextInterface } from "@/shared";
 
-
-interface userContexinterface {
-  menus: menuInterface[];
-}
-const defaultvalue: userContexinterface = {
+const defaultvalue: usercontextInterface = {
   menus: [],
+  systemconfigs:[],  
+  userDetails:{},
+  systemfeatures:{}
 };
-const UserContext = createContext<userContexinterface>(defaultvalue);
+const UserContext = createContext<usercontextInterface>(defaultvalue);
 
-export default UserContext
+export default UserContext;

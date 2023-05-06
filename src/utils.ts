@@ -1,16 +1,9 @@
-import { appConfig } from "./appconfig";
+
 import {default as clientCookie} from "js-cookie";
+import getConfig from "next/config";
 
 
-function GUID():string{
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
-    var box_ID = s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-    return box_ID;
-}
+let appConfig = getConfig().publicRuntimeConfig.appconfig
 
 export function isclient():boolean{
     return (typeof window == "undefined")?false:true
@@ -21,18 +14,16 @@ export function isserver():boolean{
 }
 
 export function getBoxId():string{
-    if(isclient()){
-        let boxId = clientCookie.get('boxId')
-        if(boxId){
-            return boxId
+    function GUID():string{
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
         }
-        else{
-            return ''
-        }
+        var box_ID = s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+        return box_ID;
     }
-    else{
-        return GUID();
-    }
+    return GUID();
 }
 
 export function setSessionToken(key:string, value:any):string | void{
