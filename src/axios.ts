@@ -1,6 +1,9 @@
 import axios,{AxiosInstance,AxiosResponse,AxiosError} from "axios"
-
-type axiostype = null | AxiosInstance
+import { fetchdata } from "./fetchapi"
+import { initJsoninterface } from "./shared";
+import qs from 'qs'
+import getConfig from "next/config";
+type axiostype = AxiosInstance
 interface dynamicobject {
     [key:string]:string | number | boolean,
 }
@@ -10,15 +13,26 @@ interface axiosgetparams{
     headers?:dynamicobject
 } 
 
-export let Axios:axiostype  = null
+const {publicRuntimeConfig} = getConfig();
 
-export function setaxiosInstance(baseurl:string):void{
-    Axios = axios.create({
-        baseURL:baseurl,
-    })
-}
 
-export async function axiosget<T>(config:axiosgetparams):Promise<T | void >{
+
+export const Axios:axiostype  = axios.create({
+    baseURL:publicRuntimeConfig.baseURL,
+})
+
+// export function setaxiosInstance(url:string,callback?:()=>{}):void{
+   
+//         Axios = axios.create({
+//             baseURL:url,
+//         })
+//         if(typeof callback == 'function'){
+//             callback();
+//         }
+// }
+
+export async function axiosget<T>(config:axiosgetparams):Promise<T | void>{
+    // console.log(config)
     if(Axios){
       try{
         let response:AxiosResponse<T> = await Axios.get<T>(config.url,{
@@ -26,7 +40,6 @@ export async function axiosget<T>(config:axiosgetparams):Promise<T | void >{
             params:config.params
         })
         let data = response.data
-        // console.log(data)
         return data
       }
       catch(err){
@@ -35,4 +48,27 @@ export async function axiosget<T>(config:axiosgetparams):Promise<T | void >{
         }
       }
     }
+    else{
+        // let baseapis = await fetchdata("https://paas-init.revlet.net/clients/firstshows/init/live/firstshows.json")
+        // setaxiosInstance(baseapis.api,()=>axiosget(config));
+    }
+}
+
+export async function axiosPost<T>(config:axiosgetparams, payload:any):Promise<T | null > {
+    if(Axios) {
+        try{
+            let response:AxiosResponse<T> = await Axios.post<T>(config.url,payload,{
+                headers:config.headers,
+                params:config.params
+            })
+            let data = response.data;
+            console.log(data)
+            return data
+        } catch(err) {
+            if(err instanceof Error){
+                throw new Error(err.message)
+            }
+        }
+    }
+    return null;
 }

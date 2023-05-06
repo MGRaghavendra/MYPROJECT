@@ -1,0 +1,89 @@
+.banners{
+.bannersWrapper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  .bannersContainers {
+    overflow: hidden;
+    .imageContainer {
+      img {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+      }
+    }
+    &::after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 36%;
+      background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 5%,hsla(0,0%,8%,.4) 35%,hsla(0,0%,8%,.73) 78%,#141414);
+    }
+  }
+ 
+}
+.sectionhelper{
+  padding-top: 33%;
+}
+}
+
+// &button {
+// height: 10px;
+// width: 10px;
+// border-radius: 50%;
+// background-color: #404040;
+// margin-bottom: 40px;
+// outline: none;
+// border: 1px solid red;
+// position: relative;
+// bottom: 5px;
+// overflow: hidden;
+// }
+
+.bannerdots{
+  display: flex !important;
+  height: 20px;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 110px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  list-style-type: none;
+ 
+  // height: 20px;
+  // border: 1px solid red;
+  // vertical-align: middle;
+  // margin: auto;
+  // display: inline-block;
+  // margin-left: 45%
+}
+
+.bannerdots li div{
+  height: 10px;
+  width:10px;
+  background: #404040;
+  border-radius: 50%;
+}
+
+// .bannerdots .dot{
+//   height: 10px;
+//   width:10px;
+//   background: #404040;
+//   border-radius: 50%;
+// }
+
+.bannerdots .slick-dots .slick-active .dot{
+  background-color: #fff;
+}
+
+// .bannerdots li.slick-active{
+//   background-color: #000;
+// }
+

@@ -1,41 +1,50 @@
-import Head from "next/head";
 import {
-  FC,
-  FunctionComponent,
   ReactNode,
-  useContext,
   useEffect,
   useState,
 } from "react";
 import Header from "@/components/header/header";
-import { initapis } from "@/init";
 import Footer from "@/components/footer/footer";
 import UserContext from "@/context/usercontext";
 import { getFromlocalStorage } from "@/utils";
 import { menuInterface } from "@/shared";
+import { useRouter } from "next/router";
+import { initClient } from "@/clientapis";
+
+
 
 function Layout({ children }: { children: ReactNode }) {
-  const [isLoading, setLoading] = useState<boolean>(false);
+  const { asPath } = useRouter();
+  const [isLoading, setLoading] = useState<boolean>(true);
   const [menus, setMenus] = useState<menuInterface[]>([]);
   useEffect(function () {
-    initapis().then((data) => {
-      console.log(data);
-      let systemconfigs = getFromlocalStorage("systemconfigs");
-    if (!!systemconfigs) {
-      let configs = JSON.parse(systemconfigs);
-      setMenus((menus) => configs.menus);
+    console.log("rendering...")
+    let systemconfigs = getFromlocalStorage("systemconfigs");
+    let systemfeatuers = getFromlocalStorage('systemfeature');
+    if (!!systemconfigs  && !!systemfeatuers) {
+      let configs = JSON.parse(systemconfigs || '');
+      setMenus(configs.menus);
+      setLoading(false);
     }
-      setLoading(true);
-    });
+    else {
+      initClient().then((data)=>{
+        console.log(data)
+        systemconfigs = getFromlocalStorage("systemconfigs");
+        systemfeatuers = getFromlocalStorage('systemfeature');
+        let configs = JSON.parse(systemconfigs || '');
+        setMenus(configs.menus);
+        setLoading(false);
+      })
+    }
   }, []);
   return (
     <UserContext.Provider value={{menus}}>
       <>
-        {isLoading === true && (
+        {isLoading === false && (
           <>
-            <Header />
+           {!asPath.includes('sign') && <Header />}
             {children}
-            <Footer />
+            {!asPath.includes('sign') && <Footer />}
           </>
         )}
       </>

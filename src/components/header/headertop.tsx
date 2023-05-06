@@ -6,16 +6,16 @@ export default function HeaderTop(): JSX.Element {
       <div className={`${styles.header_topinner}`}>
         <div className={`${styles.content} ${styles.languages}`}>
           <img
-            src={`${appConfig.cloudpath}images/language-selection-icon.svg`}
+            src={`${appConfig.cloudpath}/images/language-selection-icon.svg`}
             alt=""
           />
           <span className={`${styles.text}`}>Languages</span>
           <span className={`${styles.downarrow}`}></span>
         </div>
-        <div className={`${styles.content} ${styles.about}`}>About</div>
-        <div className={`${styles.content} ${styles.support}`}>
+        <div className={`${styles.content}`}>About</div>
+        <div className={`${styles.content}`}>
           <img
-            src={`${appConfig.cloudpath}images/header-support-mail.svg`}
+            src={`${appConfig.cloudpath}/images/header-support-mail.svg`}
             alt=""
           />
           <span className={`${styles.text}`}>support@yupptv.com</span>
