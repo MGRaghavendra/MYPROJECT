@@ -98,28 +98,31 @@ export const Card = (props: any): JSX.Element => {
       )}
       {cardType == "overlay_poster" && (
         <div className={`${styles.card}`} onClick={gotoPage} 
-        style={{
-          width: cardobj?.cardWidth,
-          minWidth: cardobj?.cardWidth,
-          marginLeft: cardobj?.configs.marginLeft,
-          marginRight:cardobj?.configs.marginRight
-        }}
+        // // style={{
+        // //   width: cardobj?.cardWidth,
+        // //   minWidth: cardobj?.cardWidth,
+        // //   marginLeft: cardobj?.configs.marginLeft,
+        // //   marginRight:cardobj?.configs.marginRight
+        // // }}
         >
-          <div className={`${styles.card_inner}`}>
+          <div className={`${styles.overlay_poster}`}>
           <img
               src={src}
               alt="Picture of the author"
-              width={"100%"}
-              height={cardobj ? cardobj.imageHeight : 132}
+              className={`${styles.card_img}`}
+              // width={"100%"}
+              // height={cardobj ? cardobj.imageHeight : 132}
             />
-            <div className={`${styles.card_footer}`}>
+            {/* <div className={`${styles.card_footer}`}>
               <div className={`${styles.card_footer_cpimage}`}>
                 {!!cpImage && (
-                  <img src={cpImage} alt=""  width={"100%"}
-                  height={cardobj ? cardobj.imageHeight : 132} />
+                  <img src={cpImage} alt="" 
+                  // width={"100%"}
+                  // height={cardobj ? cardobj.imageHeight : 132} 
+                  />
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

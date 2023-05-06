@@ -1,8 +1,16 @@
+@import '@/_var.scss';
+
 .section {
   position: relative;
   margin-bottom: 20px;
   padding: 15px 0px;
+  width: 100%;
+  @include sections;
   .cards {
+    width: 100%;
     display: flex;
   }
 }
+
+
+

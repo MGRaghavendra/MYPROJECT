@@ -19,7 +19,9 @@ export default function Section({ section }: any): JSX.Element {
   return (
     <>
       { (!!cards && cards.length>0) &&
-        <div className={styles.section} style={{paddingLeft:sectionConfgis.configs.paddingLeft}}>
+        <div className={styles.section} 
+        // style={{paddingLeft:sectionConfgis.configs.paddingLeft}}
+        >
         {sectionInfo && <SectionTitle  sectionInfo = {sectionInfo}/>}
         {cards && (
           <div className= {styles.cards} >
