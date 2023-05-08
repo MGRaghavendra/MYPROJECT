@@ -34,29 +34,30 @@ export const Card = (props: any): JSX.Element => {
     <>
       {cardType == "roller_poster" && (
         <div
-          className={`${styles.card}`}
+          className={`${styles.roller_poster} ${styles.card}`}
           onClick={gotoPage}
-          style={{
-            width: cardobj?.cardWidth,
-            minWidth: cardobj?.cardWidth,
-            marginLeft: cardobj?.configs.marginLeft,
-            marginRight:cardobj?.configs.marginRight
-          }}
+          // style={{
+          //   width: cardobj?.cardWidth,
+          //   minWidth: cardobj?.cardWidth,
+          //   marginLeft: cardobj?.configs.marginLeft,
+          //   marginRight:cardobj?.configs.marginRight
+          // }}
         >
-          <div className={`${styles.card_inner}`}>
+          <div className={`${styles.roller_poster}`}>
             <img
               src={src}
               alt="Picture of the author"
-              width={"100%"}
-              height={cardobj ? cardobj.imageHeight : 132}
+              className={`${styles.card_img}`}
+              // width={"100%"}
+              // height={cardobj ? cardobj.imageHeight : 132}
             />
-            <div className={`${styles.card_footer}`}>
+            {/* <div className={`${styles.card_footer}`}>
               <div className={`${styles.card_footer_cpimage}`}>
                 {!!cpImage && (
                   <img src={cpImage} alt="" width={46} height={26} />
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -97,7 +98,7 @@ export const Card = (props: any): JSX.Element => {
         </div>
       )}
       {cardType == "overlay_poster" && (
-        <div className={`${styles.card}`} onClick={gotoPage} 
+        <div className={`${styles.overlay_poster} ${styles.card}`} onClick={gotoPage} 
         // // style={{
         // //   width: cardobj?.cardWidth,
         // //   minWidth: cardobj?.cardWidth,
