@@ -106,11 +106,11 @@ export default function GenericLayout({
     <PageContext.Provider value={{ ...pagestate }}>
       {loading ? (
         <>
-        <div style={{height:"100vh"}}></div>
+        {/* <div style={{height:"100vh"}}></div> */}
         <Loading />
         </>
       ) : (
-        <div style={{ marginTop: "96px" }}>{children}</div>
+        <div>{children}</div>
       )}
     </PageContext.Provider>
   );

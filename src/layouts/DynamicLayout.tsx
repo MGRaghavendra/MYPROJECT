@@ -5,12 +5,14 @@ import { PageContext } from "@/context/pagecontext";
 import DetailsPage from "@/components/Details/details";
 import { memo } from "react";
 import TvGuide from "@/components/tvguide/Tvguide";
+import Grid from "@/components/grid/Grid";
 
 function DynamicLayout(): JSX.Element {
   return (
     <GenericLayout>
       <PageContext.Consumer>
         {({ info }) => {
+           console.log(info)
             return (
               <>
                 {info.pageType == "content" && (
@@ -31,9 +33,7 @@ function DynamicLayout(): JSX.Element {
                   </>
                 )}
                  {(info.pageType == "list") && (
-                  <>
-                  <h1>Grid Page....</h1>
-                  </>
+                 <Grid/>
                 )}
               </>
             );

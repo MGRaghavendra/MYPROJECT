@@ -1,17 +1,109 @@
 @import '@/_var.scss';
-.card {
-    &.overlay_poster{
-        @include card(overlayposter){
-            .card_img{
-               width: 100%;
+// .card {
+//     &.overlay_poster{
+//         @include dynamiccard(overlayposter){
+//             .card_img{
+//                width: 100%;
+//             }
+//         }
+//     }
+//     // &.roller_poster{
+//     //     @include card(roller_poster){
+//     //         .card_img{
+//     //            width: 100%;
+//     //         }
+//     //     }
+//     // }
+// }
+
+.overlay_poster {
+    position: relative;
+    transition: all 0.2s;
+    @include cardwidth(overlayposter);
+
+    .img_container {
+        img {
+            width: 100%;
+        }
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0px;
+        top: 0px;
+        width: 100%;
+        background: linear-gradient(180deg, hsla(0, 0%, 8%, 0), hsla(0, 0%, 8%, .45) 47%, #141414);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .card_info {
+            padding: 0px 10px;
+
+            .card_title {
+                @include ellipse;
+                font-size: 14px;
+                color: #ffffff;
+                line-height: 26px;
+            }
+
+            .card_subtitle {
+                color: #a6a6b2;
+                font-size: 12px;
+                @include ellipse
             }
         }
     }
-    &.roller_poster{
-        @include card(roller_poster){
-            .card_img{
-               width: 100%;
+
+    &:hover {
+        box-shadow: 0 9px 12px 1px rgba(0, 0, 0, .46);
+        transform: scale(1.16);
+        z-index: 1;
+    }
+}
+
+.roller_poster {
+    position: relative;
+    transition: all 0.2s;
+    @include cardwidth(roller_poster);
+
+    .img_container {
+        img {
+            width: 100%;
+        }
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: 62%;
+        background: linear-gradient(180deg, hsla(0, 0%, 8%, 0), hsla(0, 0%, 8%, .45) 47%, #141414);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .card_info {
+            padding: 0px 10px;
+
+            .card_title {
+                @include ellipse;
+                font-size: 14px;
+                color: #ffffff;
+                line-height: 26px;
+            }
+
+            .card_subtitle {
+                color: #a6a6b2;
+                font-size: 12px;
+                @include ellipse
             }
         }
+    }
+
+    &:hover {
+        box-shadow: 0 9px 12px 1px rgba(0, 0, 0, .46);
+        transform: scale(1.16);
+        z-index: 1;
     }
 }

@@ -4,6 +4,8 @@ import Menus from "./menus/Menus";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getFromlocalStorage } from "@/utils";
+import getConfig from "next/config";
+let appConfig = getConfig().publicRuntimeConfig.appconfig
 interface props {
   menus: menuInterface[];
 }
@@ -40,7 +42,7 @@ export default function HeaderBottom({ menus }: props): JSX.Element {
         <div className={`${styles.headerbottom_left}`}>
           <div className={`${styles.logo}`}>
             <img
-              src="https://d2ivesio5kogrp.cloudfront.net/static/firstshows/images/first-shows-white-logo.png"
+              src={`${appConfig.headerIconpath}`}
               width={85}
               height={30}
               alt="logo"

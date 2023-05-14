@@ -1,24 +1,26 @@
 //https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
-.header_container{
+.header_container {
     width: 100%;
     position: fixed;
-    top:0;
+    top: 0;
     z-index: 99;
-    overflow-x: hidden;
-    // background-color: #141414;
-    .header_top{
-        background-color: #0f0f1c;
-        .header_topinner{
+    overflow: hidden;
+
+    .header_top {
+        background-color: #141414;
+
+        .header_topinner {
             display: flex;
             flex-direction: row;
             justify-content: flex-end;
             align-items: center;
-            height:34px;
+            height: 34px;
             padding: 0px 68px;
-            .content{
+
+            .content {
                 font-family: 'Poppins', sans-serif;
                 width: fit-content;
-                color:#ffffff;
+                color: #ffffff;
                 font-size: 12px;
                 font-weight: 500;
                 cursor: pointer;
@@ -27,50 +29,61 @@
                 letter-spacing: 0.5px;
                 margin-left: 25px;
                 opacity: 0.75;
-                img{
+
+                img {
                     background: none;
                 }
             }
-            .languages{
-                .text{
+
+            .languages {
+                .text {
                     margin: 0px 5px;
                 }
-                .downarrow{
-                    height:8px;
-                    width:8px;
+
+                .downarrow {
+                    height: 8px;
+                    width: 8px;
                     transform: rotate(45deg);
                     border-right: 2px solid #ffffffbf;
-                    border-bottom:2px solid #ffffffbf;
+                    border-bottom: 2px solid #ffffffbf;
                     margin-left: 5px;
                 }
             }
         }
     }
-    .header_bottom{
-        background: #18182f;
+
+    .header_bottom {
         height: 62px;
         padding: 0.1px;
-        .header_bottominner{
-            margin:0px 58px;
+
+        .header_bottominner {
+            // margin: 0px 58px;
             height: 100%;
             display: flex;
             justify-content: space-between;
-            .headerbottom_left{
+            padding: 0px 58px;
+            background: #222;
+
+            .headerbottom_left {
                 display: flex;
                 align-items: center;
-                .logo{
-                    img{
-                        width: 68px;
+
+                .logo {
+                    img {
+                        width: 56px;
+                        height: 45px;
                         align-items: center;
                     }
                 }
             }
-            .headerbottom_right{
-                .others{
+
+            .headerbottom_right {
+                .others {
                     align-items: center;
                     display: flex;
                     justify-content: space-between;
-                    .otherbtns{
+
+                    .otherbtns {
                         font-size: 14px;
                         color: #ffffffbf;
                         margin: 0px 5px;
@@ -79,41 +92,49 @@
                         text-transform: uppercase;
                         height: 62px;
                         line-height: 62px;
-                       
+
                     }
-                    .search{
+
+                    .search {
                         display: flex;
                         align-items: center;
                         justify-content: flex-end;
                         width: 50px;
-                        a{
+
+                        a {
                             display: flex;
                             align-items: center;
                         }
-                        img{
+
+                        img {
                             margin-right: 0px;
                             border-right: 1px solid #ffffffbf;
-                            padding:2px 15px;
+                            padding: 2px 15px;
                         }
                     }
-                    .pricing{
-                        span{
+
+                    .pricing {
+                        span {
                             border-right: 1px solid #ffffffbf;
                             padding: 0px 8px;
                         }
                     }
-                    .authcontainer{
-                        .authbtn{
+
+                    .authcontainer {
+                        .authbtn {
                             color: #ffffffbf;
                             padding: 0px 10px;
                         }
-                        .signinbtn{
+
+                        .signinbtn {
                             color: #ffffffbf;
                         }
-                        .signupbtn{
-                           color: #ffffffbf;
+
+                        .signupbtn {
+                            color: #ffffffbf;
                         }
-                        .authactivebtn{
+
+                        .authactivebtn {
                             color: #fff;
                             background-color: #d99200;
                             padding: 8px 15px;

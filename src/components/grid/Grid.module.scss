@@ -1,0 +1,12 @@
+@import '@/_var.scss';
+
+.Grid_container {
+  padding: 0px 48px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  &.noBanners {
+    top: 116px;
+  }
+}

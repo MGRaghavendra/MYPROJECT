@@ -47,8 +47,9 @@ export default function Banners() {
     },
     // useCSS: true,
     dotsClass: styles.bannerdots,
-    centerMode: false,
+    centerMode: true,
     arrows: false,
+    centerPadding:'140px',
   };
   // console.log(banners);
   return banners.length > 0 ? (
