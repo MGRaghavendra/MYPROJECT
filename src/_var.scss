@@ -1,40 +1,197 @@
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-$font-family-primary: 'Poppins', sans-serif;
-$font-family-seconday: 'Lato', sans-serif;
-$font-awesome:'FontAwesome';
-$section-padding-left:null !default;
-@mixin sections{
-    @media only screen and (max-width:1366px){
-        $section-padding-left:50px;
-        padding-left: $section-padding-left;
+@use "sass:math";
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+
+$font-family-primary: "Poppins", sans-serif;
+$font-family-seconday: "Lato", sans-serif;
+$font-awesome: "FontAwesome";
+$section-padding-left: null !default;
+
+@mixin sections {
+    padding-left: 3%;
+    width: 100%;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media only screen and (max-width: 1440px) {
+        padding-left: 48px;
+    }
+
+    @media only screen and (max-width: 1366px) {
+        padding-left: 48px;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        padding-left: 20px;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        padding-left: 20px;
+    }
+
+    @media only screen and (max-width: 991px) {
+        padding-left: 10px;
+    }
+
+    @media only screen and (max-width: 950px) {
+        padding-left: 10px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        padding-left: 10px;
+    }
+
+    @media only screen and (max-width: 576px) {
+        padding-left: 10px;
+    }
+
+    @media only screen and (max-width: 480px) {
+        padding-left: 15px;
+    }
+
+    @media only screen and (max-width: 425px) {
+        padding-left: 15px;
+    }
+
+    @media only screen and (max-width: 380px) {
+        padding-left: 15px;
+    }
+
+    @media only screen and (max-width: 320px) {
+        padding-left: 15px;
     }
 }
 
-@mixin cardImage($cardType){
-    @if $cardType == overlayposter {
-        @media only screen and (max-width:1366px){
-            $section-padding-left:50px;
-            $card-width-px:calc(($section-padding-left*100)/1366);
-            $card-width:calc((1366px -  $card-width-px)/ 5);
-            height: calc($card-width / 1.777777777777778);
-            width: 100%;
-            @content;
+@mixin getcardwidth($card-right-margin, $no-of-cards) {
+    $avaliable-width: calc(100% - $card-right-margin * math.floor($no-of-cards));
+    $card-width: calc($avaliable-width / $no-of-cards);
+    min-width: $card-width;
+    width: $card-width;
+    margin-right: $card-right-margin;
+}
+
+@mixin cardwidth($cardType) {
+    @if $cardType ==overlayposter {
+        @include getcardwidth(10px, 6.15);
+    }
+
+    @media only screen and (max-width: 1366px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(14px, 5.15);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(20px, 8.15);
+        }
+    }
+
+    @media only screen and (max-width: 1199px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(14px, 5.1);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(20px, 6.5);
+        }
+    }
+
+    @media only screen and (max-width: 1024px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(14px, 4.1);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(20px, 6.5);
+        }
+    }
+
+    @media only screen and (max-width: 991px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(14px, 4);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(20px, 4.5);
+        }
+    }
+
+    @media only screen and (max-width: 950px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 3);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 4.5);
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 3);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 5);
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 2);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 4.02);
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 2);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 3.05);
+        }
+    }
+
+    @media only screen and (max-width: 425px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 2);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 3.05);
+        }
+    }
+
+    @media only screen and (max-width: 380px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 2);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 3.05);
+        }
+    }
+
+    @media only screen and (max-width: 320px) {
+        @if $cardType ==overlayposter {
+            @include getcardwidth(8px, 2);
+        }
+
+        @else if $cardType ==roller_poster {
+            @include getcardwidth(8px, 3.05);
         }
     }
 }
 
-@mixin card($cardType){
-    @if $cardType == overlayposter {
-        @media only screen and (max-width:1366px){
-            $section-padding-left:50px;
-            $card-right-margin:10px;
-            $card-width-px:calc(($section-padding-left*100)/1366);
-            $card-width:calc((1366px -  $card-width-px)/ 5);
-            width:$card-width;
-            min-width: $card-width;
-            // width: 50%;
-            @content;
-        }
-    }
-}
 
+@mixin ellipse {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,5 +1,9 @@
-.sections{
+.sections {
     // border: 1px solid red;
     position: relative;
     z-index: 2;
+
+    &.noBanners {
+        top: 116px;
+    }
 }

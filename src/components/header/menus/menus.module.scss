@@ -1,17 +1,20 @@
 .menus {
   margin-left: 20px;
-    .menu {
-      font-size: 14px;
-      color: #ffffffbf;
-      width: fit-content;
-      text-align: center;
-      text-transform: uppercase;
-      display: inline-block;
-      height: 62px;
-      line-height: 62px;
-      padding: 0px 15px;
-    }
-    .active {
-      border-bottom: 3px solid #d99200;
-    }
+
+  .menu {
+    font-size: 14px;
+    color: #ffffffbf;
+    width: fit-content;
+    text-align: center;
+    text-transform: capitalize;
+    display: inline-block;
+    height: 62px;
+    line-height: 62px;
+    padding: 0px 15px;
+  }
+
+  .active {
+    border-bottom: 2px solid #cc3300;
+    color: #fff;
+  }
 }
