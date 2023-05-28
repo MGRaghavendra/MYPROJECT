@@ -1,9 +1,12 @@
 
 import {default as clientCookie} from "js-cookie";
 import getConfig from "next/config";
+import { scrollcardsInterface } from "./shared";
 
 
 let appConfig = getConfig().publicRuntimeConfig.appconfig
+
+
 
 export function isclient():boolean{
     return (typeof window == "undefined")?false:true
@@ -83,4 +86,26 @@ export function getplatform(userAgent:string){
     }
     return 'web'
 } 
+
+export function getscrollproperties(cardType: keyof scrollcardsInterface, screenwidth: number): { screenwidth: number, paddingLeft: number, marginRight: number} {
+    let scrollcards: scrollcardsInterface = {
+        overlay_poster: [
+            { screenwidth: 1920, paddingLeft: 48, marginRight: 10},
+            { screenwidth: 1440, paddingLeft: 48, marginRight: 10},
+            { screenwidth: 1366, paddingLeft: 48, marginRight: 7},
+            { screenwidth: 1199, paddingLeft: 20, marginRight: 7},
+            { screenwidth: 1024, paddingLeft: 20, marginRight: 14},
+            { screenwidth: 991, paddingLeft: 10, marginRight: 7},
+            { screenwidth: 950, paddingLeft: 10, marginRight: 4},
+            { screenwidth: 767, paddingLeft: 10, marginRight: 4},
+            { screenwidth: 576, paddingLeft: 10, marginRight: 4},
+            { screenwidth: 480, paddingLeft: 15, marginRight: 4},
+            { screenwidth: 425, paddingLeft: 15, marginRight: 4},
+            { screenwidth: 380, paddingLeft: 15, marginRight: 4},
+            { screenwidth: 320, paddingLeft: 15, marginRight: 4},
+        ]
+    }
+    let scrollsonfigs: scrollcardsInterface[keyof scrollcardsInterface] = scrollcards[cardType].reverse();
+    return scrollsonfigs.filter((configs) => (configs.screenwidth >= screenwidth))[0]
+}
 

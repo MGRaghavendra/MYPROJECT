@@ -87,7 +87,7 @@ export const Card = (props: any): JSX.Element => {
         </div>
       )}
       {cardType == "sheet_poster" && (
-         <div className={`${styles.overlay_poster}`}>
+         <div className={`${styles.sheet_poster}`}>
           <div className={`${styles.img_container}`}>
             <img src={src} alt="Picture of the author" />
           </div>

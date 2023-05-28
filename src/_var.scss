@@ -8,69 +8,70 @@ $font-awesome: "FontAwesome";
 $section-padding-left: null !default;
 
 @mixin sections {
-    padding-left: 3%;
+    padding: 0px 48px;
     width: 100%;
-    overflow-x: scroll;
 
     &::-webkit-scrollbar {
         display: none;
     }
 
     @media only screen and (max-width: 1440px) {
-        padding-left: 48px;
+        padding: 0px 48px;
     }
 
     @media only screen and (max-width: 1366px) {
-        padding-left: 48px;
+        padding: 0px 48px
+        // padding: 0px;
+        // padding-left: 48px;
     }
 
     @media only screen and (max-width: 1199px) {
-        padding-left: 20px;
+        padding: 0px 20px;
     }
 
     @media only screen and (max-width: 1024px) {
-        padding-left: 20px;
+        padding: 0px 20px;
     }
 
     @media only screen and (max-width: 991px) {
-        padding-left: 10px;
+        padding: 0px 10px;
     }
 
     @media only screen and (max-width: 950px) {
-        padding-left: 10px;
+        padding: 0px 10px;
     }
 
     @media only screen and (max-width: 767px) {
-        padding-left: 10px;
+        padding: 0px 10px;
     }
 
     @media only screen and (max-width: 576px) {
-        padding-left: 10px;
+        padding: 0px 10px;
     }
 
     @media only screen and (max-width: 480px) {
-        padding-left: 15px;
+        padding: 0px 15px;
     }
 
     @media only screen and (max-width: 425px) {
-        padding-left: 15px;
+        padding: 0px 15px;
     }
 
     @media only screen and (max-width: 380px) {
-        padding-left: 15px;
+        padding: 0px 15px;
     }
 
     @media only screen and (max-width: 320px) {
-        padding-left: 15px;
+        padding: 0px 15px;
     }
 }
 
-@mixin getcardwidth($card-right-margin, $no-of-cards) {
-    $avaliable-width: calc(100% - $card-right-margin * math.floor($no-of-cards));
+@mixin getcardwidth($card-margin, $no-of-cards) {
+    $avaliable-width: calc(100% + 48px - $card-margin * 2 * math.floor($no-of-cards));
     $card-width: calc($avaliable-width / $no-of-cards);
     min-width: $card-width;
     width: $card-width;
-    margin-right: $card-right-margin;
+    margin: $card-margin;
 }
 
 @mixin cardwidth($cardType) {
@@ -80,21 +81,21 @@ $section-padding-left: null !default;
 
     @media only screen and (max-width: 1366px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(14px, 5.15);
+            @include getcardwidth(7px, 5.2);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(20px, 8.15);
+            @include getcardwidth(10px, 8.15);
         }
     }
 
     @media only screen and (max-width: 1199px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(14px, 5.1);
+            @include getcardwidth(7px, 5.1);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(20px, 6.5);
+            @include getcardwidth(10px, 6.5);
         }
     }
 
@@ -104,87 +105,87 @@ $section-padding-left: null !default;
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(20px, 6.5);
+            @include getcardwidth(10px, 6.5);
         }
     }
 
     @media only screen and (max-width: 991px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(14px, 4);
+            @include getcardwidth(7px, 4);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(20px, 4.5);
+            @include getcardwidth(10px, 4.5);
         }
     }
 
     @media only screen and (max-width: 950px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 3);
+            @include getcardwidth(4px, 3);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 4.5);
+            @include getcardwidth(4px, 4.5);
         }
     }
 
     @media only screen and (max-width: 767px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 3);
+            @include getcardwidth(4px, 3);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 5);
+            @include getcardwidth(4px, 5);
         }
     }
 
     @media only screen and (max-width: 576px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 2);
+            @include getcardwidth(4px, 2);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 4.02);
+            @include getcardwidth(4px, 4.02);
         }
     }
 
     @media only screen and (max-width: 480px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 2);
+            @include getcardwidth(4px, 2);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 3.05);
+            @include getcardwidth(4px, 3.05);
         }
     }
 
     @media only screen and (max-width: 425px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 2);
+            @include getcardwidth(4px, 2);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 3.05);
+            @include getcardwidth(4px, 3.05);
         }
     }
 
     @media only screen and (max-width: 380px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 2);
+            @include getcardwidth(4px, 2);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 3.05);
+            @include getcardwidth(4px, 3.05);
         }
     }
 
     @media only screen and (max-width: 320px) {
         @if $cardType ==overlayposter {
-            @include getcardwidth(8px, 2);
+            @include getcardwidth(4px, 2);
         }
 
         @else if $cardType ==roller_poster {
-            @include getcardwidth(8px, 3.05);
+            @include getcardwidth(4px, 3.05);
         }
     }
 }
@@ -194,4 +195,87 @@ $section-padding-left: null !default;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+@mixin breakpoint($width) {
+    @media (max-width: $width) {
+            @content ;
+    }
+    // @if $point ==below-big {
+    //     @media (max-width: 1900px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==desktop-big {
+    //     @media (min-width: 1441px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mac {
+    //     @media (max-width: 1440px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==laptop {
+    //     @media (max-width: 1366px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==desktop-small {
+    //     @media (max-width: 1199px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==tablet-portrait {
+    //     @media (max-width: 1024px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==tablet {
+    //     @media (max-width: 991px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mobile {
+    //     @media (max-width: 767px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mobile-big-land {
+    //     @media (max-width: 640px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mobile-small {
+    //     @media (max-width: 576px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mobile-common-land {
+    //     @media (max-width: 480px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mobile-common {
+    //     @media (max-width: 360px) {
+    //         @content ;
+    //     }
+    // }
+
+    // @else if $point ==mobile-x-small {
+    //     @media (max-width: 320px) {
+    //         @content ;
+    //     }
+    // }
 }
