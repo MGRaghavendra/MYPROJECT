@@ -50,6 +50,14 @@ export default function Banners() {
     centerMode: true,
     arrows: false,
     centerPadding:'140px',
+    responsive:[
+      {
+        breakpoint:768,
+        settings:{
+          centerPadding: '20px'
+        }
+      }
+    ]
   };
   // console.log(banners);
   return banners.length > 0 ? (

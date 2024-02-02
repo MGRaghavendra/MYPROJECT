@@ -109,3 +109,55 @@ export function getscrollproperties(cardType: keyof scrollcardsInterface, screen
     return scrollsonfigs.filter((configs) => (configs.screenwidth >= screenwidth))[0]
 }
 
+export function section_render_configs(cardType: string, screenwidth:number){
+    console.log(cardType,screenwidth)
+    let confgis = {
+        'overlay_poster':[
+            { screenwidth: 1920, paddingLeft: 48, paddingRight: 48,no_of_cards:6.15 ,margin:10},
+            { screenwidth: 1440, paddingLeft: 48, paddingRight: 48,no_of_cards: 6 ,margin:10},
+            { screenwidth: 1366, paddingLeft: 48, paddingRight: 48,no_of_cards: 5.22 ,margin:7},
+            { screenwidth: 1199, paddingLeft: 20, paddingRight: 20,no_of_cards: 5.1 ,margin:7},
+            { screenwidth: 1024, paddingLeft: 20, paddingRight: 20,no_of_cards: 4.1 ,margin:14},
+            { screenwidth: 991, paddingLeft: 10, paddingRight: 10,no_of_cards: 4.07 ,margin:7},
+            { screenwidth: 950, paddingLeft: 10, paddingRight: 10,no_of_cards: 3 ,margin:4},
+            { screenwidth: 767, paddingLeft: 10, paddingRight: 10,no_of_cards: 3 ,margin:4},
+            { screenwidth: 576, paddingLeft: 10, paddingRight: 10,no_of_cards: 2 ,margin:4},
+            { screenwidth: 480, paddingLeft: 15, paddingRight: 15,no_of_cards: 2 ,margin:4},
+            { screenwidth: 425, paddingLeft: 15, paddingRight: 15,no_of_cards: 2 ,margin:4},
+            { screenwidth: 380, paddingLeft: 15, paddingRight: 15,no_of_cards: 2 ,margin:4},
+            { screenwidth: 320, paddingLeft: 15, paddingRight: 15,no_of_cards: 2 ,margin:4},
+        ],
+        'sheet_poster':[
+            { screenwidth: 1920, paddingLeft: 48, paddingRight: 48, no_of_cards: 6.15, margin: 10 },
+            { screenwidth: 1440, paddingLeft: 48, paddingRight: 48, no_of_cards: 6, margin: 10 },
+            { screenwidth: 1366, paddingLeft: 48, paddingRight: 48, no_of_cards: 5.22, margin: 7 },
+            { screenwidth: 1199, paddingLeft: 20, paddingRight: 20, no_of_cards: 5.1, margin: 7 },
+            { screenwidth: 1024, paddingLeft: 20, paddingRight: 20, no_of_cards: 4.1, margin: 14 },
+            { screenwidth: 991, paddingLeft: 10, paddingRight: 10, no_of_cards: 4.07, margin: 7 },
+            { screenwidth: 950, paddingLeft: 10, paddingRight: 10, no_of_cards: 3, margin: 4 },
+            { screenwidth: 767, paddingLeft: 10, paddingRight: 10, no_of_cards: 3, margin: 4 },
+            { screenwidth: 576, paddingLeft: 10, paddingRight: 10, no_of_cards: 2, margin: 4 },
+            { screenwidth: 480, paddingLeft: 15, paddingRight: 15, no_of_cards: 2, margin: 4 },
+            { screenwidth: 425, paddingLeft: 15, paddingRight: 15, no_of_cards: 2, margin: 4 },
+            { screenwidth: 380, paddingLeft: 15, paddingRight: 15, no_of_cards: 2, margin: 4 },
+            { screenwidth: 320, paddingLeft: 15, paddingRight: 15, no_of_cards: 2, margin: 4 },
+        ]
+    }
+    let section_onfigs = confgis[cardType]?.reverse();
+    return section_onfigs.filter((configs) => (configs.screenwidth >= screenwidth))[0]
+}
+
+export function getCardRatio(cardType: string) {
+    switch (cardType) {
+        case "roller_poster":
+            return 0.6666666666666667;
+        case "overlay_poster":
+        case "overlayIcon_poster":
+        case "sheet_poster":
+            //0.5625 is the heigth / width value eg(9:16)
+            return 0.5625;
+        default:
+            return 0;
+            break;
+    }
+}
